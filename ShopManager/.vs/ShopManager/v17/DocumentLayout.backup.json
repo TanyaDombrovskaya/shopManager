@@ -1,21 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Kolledg\\kursach\\ShopManager\\",
+  "WorkspaceRootPath": "C:\\git\\c#\\shopManager\\ShopManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\kolledg\\kursach\\shopmanager\\shopmanager\\registrationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\registrationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\kolledg\\kursach\\shopmanager\\shopmanager\\registrationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\registrationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\kolledg\\kursach\\shopmanager\\shopmanager\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\kolledg\\kursach\\shopmanager\\shopmanager\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -26,57 +38,95 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "LoginForm.cs",
-              "DocumentMoniker": "C:\\Kolledg\\kursach\\ShopManager\\ShopManager\\LoginForm.cs",
-              "RelativeDocumentMoniker": "ShopManager\\LoginForm.cs",
-              "ToolTip": "C:\\Kolledg\\kursach\\ShopManager\\ShopManager\\LoginForm.cs",
-              "RelativeToolTip": "ShopManager\\LoginForm.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwBYAAAANAAAAAAAAAA==",
+              "Title": "UserForm.cs",
+              "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\UserForm.cs",
+              "RelativeDocumentMoniker": "ShopManager\\UserForm.cs",
+              "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\UserForm.cs",
+              "RelativeToolTip": "ShopManager\\UserForm.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T19:22:27.78Z",
+              "WhenOpened": "2025-03-21T11:30:08.599Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoginForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "DocumentMoniker": "C:\\Kolledg\\kursach\\ShopManager\\ShopManager\\LoginForm.cs",
-              "RelativeDocumentMoniker": "ShopManager\\LoginForm.cs",
-              "ToolTip": "C:\\Kolledg\\kursach\\ShopManager\\ShopManager\\LoginForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "RelativeToolTip": "ShopManager\\LoginForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentIndex": 4,
+              "Title": "AdminForm.cs",
+              "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\AdminForm.cs",
+              "RelativeDocumentMoniker": "ShopManager\\AdminForm.cs",
+              "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\AdminForm.cs",
+              "RelativeToolTip": "ShopManager\\AdminForm.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T19:22:23.862Z",
+              "WhenOpened": "2025-03-21T11:29:13.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\AdminForm.cs",
+              "RelativeDocumentMoniker": "ShopManager\\AdminForm.cs",
+              "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\AdminForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "ShopManager\\AdminForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T11:24:54.857Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\UserForm.cs",
+              "RelativeDocumentMoniker": "ShopManager\\UserForm.cs",
+              "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\UserForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "ShopManager\\UserForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T11:24:46.491Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RegistrationForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "DocumentMoniker": "C:\\Kolledg\\kursach\\ShopManager\\ShopManager\\RegistrationForm.cs",
-              "RelativeDocumentMoniker": "ShopManager\\RegistrationForm.cs",
-              "ToolTip": "C:\\Kolledg\\kursach\\ShopManager\\ShopManager\\RegistrationForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]*",
-              "RelativeToolTip": "ShopManager\\RegistrationForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]*",
+              "Title": "DatabaseManager.cs",
+              "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\DatabaseManager.cs",
+              "RelativeDocumentMoniker": "ShopManager\\DatabaseManager.cs",
+              "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\DatabaseManager.cs",
+              "RelativeToolTip": "ShopManager\\DatabaseManager.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwEUAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T18:57:30.359Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
+              "WhenOpened": "2025-03-21T10:22:36.159Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RegistrationForm.cs",
-              "DocumentMoniker": "C:\\Kolledg\\kursach\\ShopManager\\ShopManager\\RegistrationForm.cs",
-              "RelativeDocumentMoniker": "ShopManager\\RegistrationForm.cs",
-              "ToolTip": "C:\\Kolledg\\kursach\\ShopManager\\ShopManager\\RegistrationForm.cs*",
-              "RelativeToolTip": "ShopManager\\RegistrationForm.cs*",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwBwAAAAAAAAAAAAAAA==",
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\LoginForm.cs",
+              "RelativeDocumentMoniker": "ShopManager\\LoginForm.cs",
+              "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\LoginForm.cs",
+              "RelativeToolTip": "ShopManager\\LoginForm.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwEcAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T17:56:45.149Z",
+              "WhenOpened": "2025-03-21T10:16:03.48Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\LoginForm.cs",
+              "RelativeDocumentMoniker": "ShopManager\\LoginForm.cs",
+              "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\LoginForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "ShopManager\\LoginForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T09:57:18.714Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
             }
           ]
         }

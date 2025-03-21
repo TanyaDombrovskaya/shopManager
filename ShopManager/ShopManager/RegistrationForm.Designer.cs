@@ -32,9 +32,7 @@
             passwordLabelReg = new Label();
             loginLabelReg = new Label();
             passwordRegInput = new TextBox();
-            loginIRegInput = new TextBox();
-            kodLabelReg = new Label();
-            codeInput = new TextBox();
+            loginRegInput = new TextBox();
             RegButton = new Button();
             autoLabel = new Label();
             nameLabel = new Label();
@@ -43,7 +41,6 @@
             surnameInput = new TextBox();
             emailLabel = new Label();
             emailInput = new TextBox();
-            iLabel = new Label();
             SuspendLayout();
             // 
             // closeButton
@@ -89,34 +86,14 @@
             passwordRegInput.Size = new Size(294, 38);
             passwordRegInput.TabIndex = 9;
             // 
-            // loginIRegInput
+            // loginRegInput
             // 
-            loginIRegInput.BorderStyle = BorderStyle.FixedSingle;
-            loginIRegInput.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            loginIRegInput.Location = new Point(192, 76);
-            loginIRegInput.Name = "loginIRegInput";
-            loginIRegInput.Size = new Size(294, 38);
-            loginIRegInput.TabIndex = 8;
-            // 
-            // kodLabelReg
-            // 
-            kodLabelReg.AutoSize = true;
-            kodLabelReg.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            kodLabelReg.ForeColor = Color.FromArgb(15, 0, 0);
-            kodLabelReg.Location = new Point(59, 213);
-            kodLabelReg.Name = "kodLabelReg";
-            kodLabelReg.Size = new Size(55, 31);
-            kodLabelReg.TabIndex = 12;
-            kodLabelReg.Text = "Код";
-            // 
-            // codeInput
-            // 
-            codeInput.BorderStyle = BorderStyle.FixedSingle;
-            codeInput.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            codeInput.Location = new Point(192, 211);
-            codeInput.Name = "codeInput";
-            codeInput.Size = new Size(294, 38);
-            codeInput.TabIndex = 13;
+            loginRegInput.BorderStyle = BorderStyle.FixedSingle;
+            loginRegInput.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            loginRegInput.Location = new Point(192, 76);
+            loginRegInput.Name = "loginRegInput";
+            loginRegInput.Size = new Size(294, 38);
+            loginRegInput.TabIndex = 8;
             // 
             // RegButton
             // 
@@ -125,7 +102,7 @@
             RegButton.FlatStyle = FlatStyle.Flat;
             RegButton.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
             RegButton.ForeColor = Color.White;
-            RegButton.Location = new Point(128, 492);
+            RegButton.Location = new Point(126, 441);
             RegButton.Name = "RegButton";
             RegButton.Size = new Size(291, 56);
             RegButton.TabIndex = 14;
@@ -133,6 +110,8 @@
             RegButton.Text = "Регистрация";
             RegButton.UseVisualStyleBackColor = false;
             RegButton.Click += RegButton_Click;
+            RegButton.MouseDown += RegButton_MouseDown;
+            RegButton.MouseUp += RegButton_MouseUp;
             // 
             // autoLabel
             // 
@@ -149,7 +128,7 @@
             nameLabel.AutoSize = true;
             nameLabel.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
             nameLabel.ForeColor = Color.FromArgb(15, 0, 0);
-            nameLabel.Location = new Point(59, 279);
+            nameLabel.Location = new Point(59, 214);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new Size(61, 31);
             nameLabel.TabIndex = 16;
@@ -159,7 +138,7 @@
             // 
             nameInput.BorderStyle = BorderStyle.FixedSingle;
             nameInput.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            nameInput.Location = new Point(192, 277);
+            nameInput.Location = new Point(192, 212);
             nameInput.Name = "nameInput";
             nameInput.Size = new Size(294, 38);
             nameInput.TabIndex = 17;
@@ -169,7 +148,7 @@
             surnameLabel.AutoSize = true;
             surnameLabel.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
             surnameLabel.ForeColor = Color.FromArgb(15, 0, 0);
-            surnameLabel.Location = new Point(56, 347);
+            surnameLabel.Location = new Point(59, 284);
             surnameLabel.Name = "surnameLabel";
             surnameLabel.Size = new Size(114, 31);
             surnameLabel.TabIndex = 18;
@@ -179,7 +158,7 @@
             // 
             surnameInput.BorderStyle = BorderStyle.FixedSingle;
             surnameInput.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            surnameInput.Location = new Point(192, 345);
+            surnameInput.Location = new Point(192, 282);
             surnameInput.Name = "surnameInput";
             surnameInput.Size = new Size(294, 38);
             surnameInput.TabIndex = 19;
@@ -189,7 +168,7 @@
             emailLabel.AutoSize = true;
             emailLabel.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
             emailLabel.ForeColor = Color.FromArgb(15, 0, 0);
-            emailLabel.Location = new Point(59, 410);
+            emailLabel.Location = new Point(59, 357);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(70, 31);
             emailLabel.TabIndex = 20;
@@ -199,31 +178,17 @@
             // 
             emailInput.BorderStyle = BorderStyle.FixedSingle;
             emailInput.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            emailInput.Location = new Point(192, 408);
+            emailInput.Location = new Point(192, 355);
             emailInput.Name = "emailInput";
             emailInput.Size = new Size(294, 38);
             emailInput.TabIndex = 21;
-            // 
-            // iLabel
-            // 
-            iLabel.AutoSize = true;
-            iLabel.Cursor = Cursors.Hand;
-            iLabel.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            iLabel.ForeColor = Color.Blue;
-            iLabel.Location = new Point(113, 211);
-            iLabel.Name = "iLabel";
-            iLabel.Size = new Size(16, 25);
-            iLabel.TabIndex = 22;
-            iLabel.Text = "i";
-            iLabel.Click += iLabel_Click;
             // 
             // RegistrationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightCyan;
-            ClientSize = new Size(544, 580);
-            Controls.Add(iLabel);
+            ClientSize = new Size(544, 537);
             Controls.Add(emailInput);
             Controls.Add(emailLabel);
             Controls.Add(surnameInput);
@@ -232,12 +197,10 @@
             Controls.Add(nameLabel);
             Controls.Add(autoLabel);
             Controls.Add(RegButton);
-            Controls.Add(codeInput);
-            Controls.Add(kodLabelReg);
             Controls.Add(passwordLabelReg);
             Controls.Add(loginLabelReg);
             Controls.Add(passwordRegInput);
-            Controls.Add(loginIRegInput);
+            Controls.Add(loginRegInput);
             Controls.Add(closeButton);
             Name = "RegistrationForm";
             Text = "Registration";
@@ -251,9 +214,7 @@
         private Label passwordLabelReg;
         private Label loginLabelReg;
         private TextBox passwordRegInput;
-        private TextBox loginIRegInput;
-        private Label kodLabelReg;
-        private TextBox codeInput;
+        private TextBox loginRegInput;
         private Button RegButton;
         private Label autoLabel;
         private Label nameLabel;
@@ -262,6 +223,5 @@
         private TextBox surnameInput;
         private Label emailLabel;
         private TextBox emailInput;
-        private Label iLabel;
     }
 }

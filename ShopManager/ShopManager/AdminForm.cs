@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace ShopManager
 {
-    public partial class AdminForm : Form
+    public partial class AdminForm : Base
     {
         public AdminForm()
         {
             InitializeComponent();
+        }
+
+        public string NameAdmin
+        {
+            get { return nameAdmin.Text; }
+            set { nameAdmin.Text = value; }
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
