@@ -12,9 +12,14 @@ namespace ShopManager
 {
     public partial class AdminForm : Base
     {
+        private Point lastMousePosition;
+
         public AdminForm()
         {
             InitializeComponent();
+
+            panelUpAdmin.MouseDown += PanelHeader_MouseDown;
+            panelUpAdmin.MouseMove += PanelHeader_MouseMove;    
         }
 
         public string NameAdmin
@@ -26,6 +31,11 @@ namespace ShopManager
         private void closeButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void adminLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

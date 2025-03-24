@@ -11,6 +11,9 @@ namespace ShopManager
         {
             InitializeComponent();
 
+            panelUpLogin.MouseDown += PanelHeader_MouseDown;
+            panelUpLogin.MouseMove += PanelHeader_MouseMove;
+
             DatabaseManager dbm = new DatabaseManager();
 
             (string user, string dostup) = dbm.ChooseDostup();
@@ -34,7 +37,7 @@ namespace ShopManager
                 else
                 {
                     MessageBox.Show("Неизвестный уровень доступа.");
-                    return; 
+                    return;
                 }
 
                 this.Close();
@@ -101,5 +104,7 @@ namespace ShopManager
             RegistrationForm registration = new RegistrationForm();
             registration.Show();
         }
+
+
     }
 }

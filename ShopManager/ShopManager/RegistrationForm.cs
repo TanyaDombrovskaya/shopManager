@@ -11,6 +11,9 @@ namespace ShopManager
         public RegistrationForm()
         {
             InitializeComponent();
+
+            panelUpReg.MouseDown += PanelHeader_MouseDown;
+            panelUpReg.MouseMove += PanelHeader_MouseMove;
         }
 
         private void closeButton_Click(object sender, EventArgs e)

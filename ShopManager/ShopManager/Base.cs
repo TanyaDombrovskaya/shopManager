@@ -5,21 +5,27 @@ namespace ShopManager
 {
     public class Base : Form
     {
+        private Point lastMousePosition;
+
         public Base() {
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.LightCyan;
         }
 
-        protected override void WndProc(ref Message m)
+        protected void PanelHeader_MouseDown(object sender, MouseEventArgs e)
         {
-            const int WM_NCHITTEST = 0x84;
-            const int HTCAPTION = 0x2;
-
-            base.WndProc(ref m);
-
-            if (m.Msg == WM_NCHITTEST)
+            if (e.Button == MouseButtons.Left)
             {
-                m.Result = (IntPtr)HTCAPTION;
+                lastMousePosition = e.Location;
+            }
+        }
+
+        protected void PanelHeader_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastMousePosition.X;
+                this.Top += e.Y - lastMousePosition.Y;
             }
         }
     }

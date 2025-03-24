@@ -15,6 +15,9 @@ namespace ShopManager
         public UserForm()
         {
             InitializeComponent();
+
+            panelUpUser.MouseDown += PanelHeader_MouseDown;
+            panelUpUser.MouseMove += PanelHeader_MouseMove;
         }
 
         public string NameUser

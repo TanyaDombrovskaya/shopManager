@@ -105,5 +105,7 @@ namespace ShopManager
 
             return (userName, dostup);
         }
+
+
     }
 }
