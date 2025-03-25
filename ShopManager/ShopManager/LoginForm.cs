@@ -5,8 +5,16 @@ using System.Data.SqlClient;
 
 namespace ShopManager
 {
+    public static class GlobalID
+    {
+        public static int ID { get; set; }
+    }
+
+
     public partial class LoginForm : Base
     {
+        
+
         public LoginForm()
         {
             InitializeComponent();
@@ -57,6 +65,9 @@ namespace ShopManager
             {
                 DatabaseManager dbManager2 = new DatabaseManager();
                 bool result = dbManager2.UserConnect(login);
+
+                DatabaseManager dbManager3 = new DatabaseManager();
+                GlobalID.ID = dbManager3.GetID(login);
 
                 if (role.Equals("admin", StringComparison.OrdinalIgnoreCase))
                 {

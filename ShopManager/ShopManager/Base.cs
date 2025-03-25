@@ -7,7 +7,8 @@ namespace ShopManager
     {
         private Point lastMousePosition;
 
-        public Base() {
+        public Base()
+        {
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.LightCyan;
         }

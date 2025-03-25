@@ -1,5 +1,7 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.VisualBasic.Logging;
+using MySql.Data.MySqlClient;
 using System.Data;
+using System.Security.Cryptography;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ShopManager
@@ -35,6 +37,35 @@ namespace ShopManager
             }
 
             return role;
+        }
+
+        public int GetID(string username)
+        {
+            int ID = 0;
+
+            try
+            {
+                using (var connection = _connectionDB.GetConnection())
+                {
+                    MySqlCommand cmd = new MySqlCommand("SELECT `userID` FROM `users` WHERE `username` = @us", connection);
+                    cmd.Parameters.Add("@us", MySqlDbType.VarChar).Value = username;
+
+                    connection.Open();
+
+                    var reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        ID = Convert.ToInt32(reader["userID"]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка: {ex.Message}");
+            }
+
+            return ID;
         }
 
         public bool AddUser(string login, string password, string name, string surname, string email)
@@ -94,6 +125,7 @@ namespace ShopManager
                 MySqlCommand cmd = new MySqlCommand("SELECT `username`, `dostup` FROM `users` WHERE `status` = 'yes'", connection);
 
                 connection.Open();
+
                 var reader = cmd.ExecuteReader();
 
                 if (reader.Read())
@@ -106,6 +138,31 @@ namespace ShopManager
             return (userName, dostup);
         }
 
+        public bool ExitAccaunt(int ID)
+        {
+            try
+            {
+                using (var connection = _connectionDB.GetConnection())
+                {
+                    MySqlCommand cmd = new MySqlCommand("UPDATE `users` SET `status` = @st WHERE `userID` = @id", connection);
+                    cmd.Parameters.Add("@st", MySqlDbType.VarChar).Value = "no";
+                    cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = ID;
 
+                    connection.Open();
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Ошибка доступа к базе данных: {ex.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Общая ошибка: {ex.GetType().Name} - {ex.Message}");
+                return false;
+            }
+        }
     }
 }
