@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Data.Common;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -18,29 +19,7 @@ namespace ShopManager
             _adapter = new MySqlDataAdapter();
         }
 
-        public string GetUser(string login, string password)
-        {
-            string role = null;
-
-            using (var connection = _connectionDB.GetConnection())
-            {
-                MySqlCommand cmd = new MySqlCommand("SELECT dostup FROM `users` WHERE `username` = @l AND `password` = @p", connection);
-                cmd.Parameters.Add("@l", MySqlDbType.VarChar).Value = login;
-                cmd.Parameters.Add("@p", MySqlDbType.VarChar).Value = password;
-
-                connection.Open();
-                var reader = cmd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    role = reader["dostup"].ToString();
-                }
-            }
-
-            return role;
-        }
-
-        public int GetID(string username)
+    public int GetID(string username)
         {
             int ID = 0;
 
@@ -67,6 +46,35 @@ namespace ShopManager
             }
 
             return ID;
+        }
+
+        public string GetUserName(int id)
+        {
+            string userName = "";
+
+            try
+            {
+                using (var connection = _connectionDB.GetConnection())
+                {
+                    MySqlCommand cmd = new MySqlCommand("SELECT `username` FROM `users` WHERE `userID` = @id", connection);
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    connection.Open();
+
+                    var reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        userName = reader["username"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка: {ex.Message}");
+            }
+
+            return userName;
         }
 
         public bool AddUser(string login, string password, string name, string surname, string email)
@@ -116,14 +124,14 @@ namespace ShopManager
             }
         }
 
-        public (string,string) ChooseDostup()
+        public string UserDostup(int id)
         {
-            string userName = null;
             string dostup = null;
 
             using (var connection = _connectionDB.GetConnection())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT `username`, `dostup` FROM `users` WHERE `status` = 'yes'", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT `dostup` FROM `users` WHERE `userID` = @id", connection);
+                cmd.Parameters.AddWithValue("@id", id);
 
                 connection.Open();
 
@@ -131,12 +139,11 @@ namespace ShopManager
 
                 if (reader.Read())
                 {
-                    userName = reader["username"].ToString();
                     dostup = reader["dostup"].ToString();
                 }
             }
 
-            return (userName, dostup);
+            return dostup;
         }
 
         public bool ExitAccaunt(int ID)
@@ -166,9 +173,9 @@ namespace ShopManager
             }
         }
 
-        public void LoadUserTable(DataGridView dataGridView)
+        public void LoadTable(DataGridView dataGridView, string table)
         {
-            string query = "SELECT * FROM users";
+            string query = $"SELECT * FROM {table}";
 
             using (var connection = _connectionDB.GetConnection())
             {
@@ -177,6 +184,8 @@ namespace ShopManager
                 adapter.Fill(dataTable);
 
                 dataGridView.DataSource = dataTable;
+                dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView.Refresh();
             }
         }
     }

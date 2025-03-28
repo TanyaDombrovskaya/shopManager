@@ -33,8 +33,9 @@ namespace ShopManager
             PanelControl _panelControl2 = new(_buttonsControl);
             _panelControl2.AppendDictionary();
 
-            userPanel.Parent = this;
+            dbPanel.Parent = this;
             settingsPanel.Parent = this;
+            dbTable.Parent = dbPanel;
         }
 
         public string NameAdmin
@@ -78,24 +79,28 @@ namespace ShopManager
             _buttonsControl.Add(zaprosButton);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (GlobalID.ID <= 0)
+                if (GlobalID.ReadID() <= 0)
                 {
                     MessageBox.Show("Некорректный идентификатор пользователя.");
                     return;
                 }
 
                 DatabaseManager db = new DatabaseManager();
-                if (db.ExitAccaunt(GlobalID.ID))
+
+                if (db.ExitAccaunt(GlobalID.ReadID()))
                 {
                     MessageBox.Show("Вы успешно вышли из аккаунта.");
 
+                    GlobalID.ClearID();
+
                     LoginForm loginForm = new LoginForm();
-                    loginForm.Show();
+
                     this.Close();
+                    loginForm.Show();
                 }
                 else
                 {
@@ -111,41 +116,62 @@ namespace ShopManager
         private void settingsButton_Click(object sender, EventArgs e)
         {
             settingsPanel.Visible = true;
-            userPanel.Visible = false;
+            dbPanel.Visible = false;
         }
 
         private void detailsButtons_Click(object sender, EventArgs e)
         {
+            string table = "orderDetails";
+
+            DatabaseManager db = new();
+            db.LoadTable(dbTable, table);
+
             settingsPanel.Visible = false;
-            userPanel.Visible = false;
+            dbPanel.Visible = true;
         }
 
         private void orderButton_Click(object sender, EventArgs e)
         {
+            string table = "orders";
+
+            DatabaseManager db = new();
+            db.LoadTable(dbTable, table);
+
             settingsPanel.Visible = false;
-            userPanel.Visible = false;
+            dbPanel.Visible = true;
         }
 
         private void categoriesButton_Click(object sender, EventArgs e)
         {
+            string table = "categories";
+
+            DatabaseManager db = new();
+            db.LoadTable(dbTable, table);
+
             settingsPanel.Visible = false;
-            userPanel.Visible = false;
+            dbPanel.Visible = true;
         }
 
         private void productsButton_Click(object sender, EventArgs e)
         {
+            string table = "products";
+
+            DatabaseManager db = new();
+            db.LoadTable(dbTable, table);
+
             settingsPanel.Visible = false;
-            userPanel.Visible = false;
+            dbPanel.Visible = true;
         }
 
         private void usersButton_Click(object sender, EventArgs e)
         {
-            DatabaseManager db = new();
+            string table = "users";
 
-            db.LoadUserTable(userTable);
+            DatabaseManager db = new();
+            db.LoadTable(dbTable, table);
 
             settingsPanel.Visible = false;
-            userPanel.Visible = true;
+            dbPanel.Visible = true;
         }
     }
 }

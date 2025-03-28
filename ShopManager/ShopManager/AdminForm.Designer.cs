@@ -43,16 +43,16 @@
             zaprosButton = new Button();
             filterButton = new Button();
             sortButton = new Button();
-            button1 = new Button();
+            exitButton = new Button();
             settingsPanel = new Panel();
-            userPanel = new Panel();
-            userTable = new DataGridView();
+            dbPanel = new Panel();
+            dbTable = new DataGridView();
             panelUpAdmin.SuspendLayout();
             mainPanel.SuspendLayout();
             panel1.SuspendLayout();
             settingsPanel.SuspendLayout();
-            userPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)userTable).BeginInit();
+            dbPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dbTable).BeginInit();
             SuspendLayout();
             // 
             // closeButton
@@ -270,25 +270,25 @@
             sortButton.Text = "Сортировка";
             sortButton.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // exitButton
             // 
-            button1.BackColor = Color.FromArgb(192, 0, 0);
-            button1.Cursor = Cursors.Hand;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(324, 568);
-            button1.Name = "button1";
-            button1.Size = new Size(228, 68);
-            button1.TabIndex = 6;
-            button1.Text = "Выйти";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            exitButton.BackColor = Color.FromArgb(192, 0, 0);
+            exitButton.Cursor = Cursors.Hand;
+            exitButton.FlatStyle = FlatStyle.Flat;
+            exitButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            exitButton.ForeColor = Color.White;
+            exitButton.Location = new Point(324, 568);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(228, 68);
+            exitButton.TabIndex = 6;
+            exitButton.Text = "Выйти";
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
             // 
             // settingsPanel
             // 
-            settingsPanel.Controls.Add(userPanel);
-            settingsPanel.Controls.Add(button1);
+            settingsPanel.Controls.Add(dbPanel);
+            settingsPanel.Controls.Add(exitButton);
             settingsPanel.Dock = DockStyle.Fill;
             settingsPanel.Location = new Point(228, 59);
             settingsPanel.Name = "settingsPanel";
@@ -296,25 +296,31 @@
             settingsPanel.TabIndex = 14;
             settingsPanel.Visible = false;
             // 
-            // userPanel
+            // dbPanel
             // 
-            userPanel.Controls.Add(userTable);
-            userPanel.Dock = DockStyle.Fill;
-            userPanel.Location = new Point(0, 0);
-            userPanel.Name = "userPanel";
-            userPanel.Size = new Size(829, 731);
-            userPanel.TabIndex = 7;
-            userPanel.Visible = false;
+            dbPanel.Controls.Add(dbTable);
+            dbPanel.Dock = DockStyle.Fill;
+            dbPanel.Location = new Point(0, 0);
+            dbPanel.Name = "dbPanel";
+            dbPanel.Size = new Size(829, 731);
+            dbPanel.TabIndex = 7;
+            dbPanel.Visible = false;
             // 
-            // userTable
+            // dbTable
             // 
-            userTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            userTable.Dock = DockStyle.Top;
-            userTable.Location = new Point(0, 0);
-            userTable.Name = "userTable";
-            userTable.RowHeadersWidth = 51;
-            userTable.Size = new Size(829, 408);
-            userTable.TabIndex = 0;
+            dbTable.AllowUserToAddRows = false;
+            dbTable.AllowUserToDeleteRows = false;
+            dbTable.Anchor = AnchorStyles.None;
+            dbTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dbTable.BackgroundColor = Color.LightCyan;
+            dbTable.BorderStyle = BorderStyle.None;
+            dbTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dbTable.Location = new Point(43, 68);
+            dbTable.Name = "dbTable";
+            dbTable.ReadOnly = true;
+            dbTable.RowHeadersWidth = 51;
+            dbTable.Size = new Size(745, 329);
+            dbTable.TabIndex = 0;
             // 
             // AdminForm
             // 
@@ -333,8 +339,8 @@
             mainPanel.ResumeLayout(false);
             panel1.ResumeLayout(false);
             settingsPanel.ResumeLayout(false);
-            userPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)userTable).EndInit();
+            dbPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dbTable).EndInit();
             ResumeLayout(false);
         }
 
@@ -355,9 +361,9 @@
         private Button sortButton;
         private Button zaprosButton;
         private Button filterButton;
-        private Button button1;
+        private Button exitButton;
         private Panel settingsPanel;
-        private Panel userPanel;
-        private DataGridView userTable;
+        private Panel dbPanel;
+        private DataGridView dbTable;
     }
 }

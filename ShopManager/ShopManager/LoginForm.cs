@@ -4,16 +4,10 @@ using System.Data;
 using System.Data.SqlClient;
 
 namespace ShopManager
-{
-    public static class GlobalID
-    {
-        public static int ID { get; set; }
-    }
-
-
+{ 
     public partial class LoginForm : Base
     {
-        
+        public DatabaseManager db = new DatabaseManager();
 
         public LoginForm()
         {
@@ -22,11 +16,14 @@ namespace ShopManager
             panelUpLogin.MouseDown += PanelHeader_MouseDown;
             panelUpLogin.MouseMove += PanelHeader_MouseMove;
 
-            DatabaseManager dbm = new DatabaseManager();
+            DatabaseManager dbd = new DatabaseManager();
+            int id = GlobalID.ReadID();
+            string dostup = dbd.UserDostup(id);
 
-            (string user, string dostup) = dbm.ChooseDostup();
+            DatabaseManager db = new DatabaseManager();
+            string user = db.GetUserName(id);
 
-            if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(dostup))
+            if (!string.IsNullOrEmpty(dostup))
             {
                 Form nextForm = null;
 
@@ -48,7 +45,7 @@ namespace ShopManager
                     return;
                 }
 
-                this.Close();
+                this.Hide();
                 Application.Run(nextForm);
             }
         }
@@ -56,18 +53,19 @@ namespace ShopManager
         private void loginButton_Click(object sender, EventArgs e)
         {
             string login = loginInput.Text;
-            string password = passwordInput.Text;
 
             DatabaseManager dbManager1 = new DatabaseManager();
-            string role = dbManager1.GetUser(login, password);
+            int id = dbManager1.GetID(login);
+            GlobalID.ID = id;
+            GlobalID.WriteID();
+
+            DatabaseManager dbManager2 = new DatabaseManager();
+            string role = dbManager2.UserDostup(id);
 
             if (role != null)
             {
-                DatabaseManager dbManager2 = new DatabaseManager();
-                bool result = dbManager2.UserConnect(login);
-
                 DatabaseManager dbManager3 = new DatabaseManager();
-                GlobalID.ID = dbManager3.GetID(login);
+                bool result = dbManager3.UserConnect(login);
 
                 if (role.Equals("admin", StringComparison.OrdinalIgnoreCase))
                 {

@@ -63,4 +63,4 @@ C:\git\c#\shopManager\ShopManager\ShopManager\bin\Debug\net8.0-windows\MySql.Dat
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopMana.EA9203EF.Up2Date
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.genruntimeconfig.cache
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ref\ShopManager.dll
-C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.GlobalID.resources
+C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.LoginForm.resources
