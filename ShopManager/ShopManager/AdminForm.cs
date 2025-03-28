@@ -32,6 +32,9 @@ namespace ShopManager
             AddButtonsControl();
             PanelControl _panelControl2 = new(_buttonsControl);
             _panelControl2.AppendDictionary();
+
+            userPanel.Parent = this;
+            settingsPanel.Parent = this;
         }
 
         public string NameAdmin
@@ -86,7 +89,7 @@ namespace ShopManager
                 }
 
                 DatabaseManager db = new DatabaseManager();
-                if (db.ExitAccaunt(GlobalID.ID)) 
+                if (db.ExitAccaunt(GlobalID.ID))
                 {
                     MessageBox.Show("Вы успешно вышли из аккаунта.");
 
@@ -103,6 +106,46 @@ namespace ShopManager
             {
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = true;
+            userPanel.Visible = false;
+        }
+
+        private void detailsButtons_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+            userPanel.Visible = false;
+        }
+
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+            userPanel.Visible = false;
+        }
+
+        private void categoriesButton_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+            userPanel.Visible = false;
+        }
+
+        private void productsButton_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+            userPanel.Visible = false;
+        }
+
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+            DatabaseManager db = new();
+
+            db.LoadUserTable(userTable);
+
+            settingsPanel.Visible = false;
+            userPanel.Visible = true;
         }
     }
 }

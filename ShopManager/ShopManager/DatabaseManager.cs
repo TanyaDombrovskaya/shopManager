@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Security.Cryptography;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ShopManager
@@ -162,6 +163,20 @@ namespace ShopManager
             {
                 MessageBox.Show($"Общая ошибка: {ex.GetType().Name} - {ex.Message}");
                 return false;
+            }
+        }
+
+        public void LoadUserTable(DataGridView dataGridView)
+        {
+            string query = "SELECT * FROM users";
+
+            using (var connection = _connectionDB.GetConnection())
+            {
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                dataGridView.DataSource = dataTable;
             }
         }
     }

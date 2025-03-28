@@ -43,12 +43,16 @@
             zaprosButton = new Button();
             filterButton = new Button();
             sortButton = new Button();
-            panel2 = new Panel();
             button1 = new Button();
+            settingsPanel = new Panel();
+            userPanel = new Panel();
+            userTable = new DataGridView();
             panelUpAdmin.SuspendLayout();
             mainPanel.SuspendLayout();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            settingsPanel.SuspendLayout();
+            userPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)userTable).BeginInit();
             SuspendLayout();
             // 
             // closeButton
@@ -127,6 +131,7 @@
             settingsButton.TabIndex = 5;
             settingsButton.Text = "Настройки";
             settingsButton.UseVisualStyleBackColor = false;
+            settingsButton.Click += settingsButton_Click;
             // 
             // detailsButtons
             // 
@@ -142,6 +147,7 @@
             detailsButtons.TabIndex = 4;
             detailsButtons.Text = "Детали заказов";
             detailsButtons.UseVisualStyleBackColor = false;
+            detailsButtons.Click += detailsButtons_Click;
             // 
             // orderButton
             // 
@@ -157,6 +163,7 @@
             orderButton.TabIndex = 3;
             orderButton.Text = "Заказы";
             orderButton.UseVisualStyleBackColor = false;
+            orderButton.Click += orderButton_Click;
             // 
             // categoriesButton
             // 
@@ -172,6 +179,7 @@
             categoriesButton.TabIndex = 2;
             categoriesButton.Text = "Категории";
             categoriesButton.UseVisualStyleBackColor = false;
+            categoriesButton.Click += categoriesButton_Click;
             // 
             // productsButton
             // 
@@ -187,6 +195,7 @@
             productsButton.TabIndex = 1;
             productsButton.Text = "Товар";
             productsButton.UseVisualStyleBackColor = false;
+            productsButton.Click += productsButton_Click;
             // 
             // usersButton
             // 
@@ -202,6 +211,7 @@
             usersButton.TabIndex = 0;
             usersButton.Text = "Пользователи";
             usersButton.UseVisualStyleBackColor = false;
+            usersButton.Click += usersButton_Click;
             // 
             // panel1
             // 
@@ -260,15 +270,6 @@
             sortButton.Text = "Сортировка";
             sortButton.UseVisualStyleBackColor = false;
             // 
-            // panel2
-            // 
-            panel2.Controls.Add(button1);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(228, 59);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(829, 731);
-            panel2.TabIndex = 14;
-            // 
             // button1
             // 
             button1.BackColor = Color.FromArgb(192, 0, 0);
@@ -276,7 +277,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(319, 603);
+            button1.Location = new Point(324, 568);
             button1.Name = "button1";
             button1.Size = new Size(228, 68);
             button1.TabIndex = 6;
@@ -284,13 +285,44 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // settingsPanel
+            // 
+            settingsPanel.Controls.Add(userPanel);
+            settingsPanel.Controls.Add(button1);
+            settingsPanel.Dock = DockStyle.Fill;
+            settingsPanel.Location = new Point(228, 59);
+            settingsPanel.Name = "settingsPanel";
+            settingsPanel.Size = new Size(829, 731);
+            settingsPanel.TabIndex = 14;
+            settingsPanel.Visible = false;
+            // 
+            // userPanel
+            // 
+            userPanel.Controls.Add(userTable);
+            userPanel.Dock = DockStyle.Fill;
+            userPanel.Location = new Point(0, 0);
+            userPanel.Name = "userPanel";
+            userPanel.Size = new Size(829, 731);
+            userPanel.TabIndex = 7;
+            userPanel.Visible = false;
+            // 
+            // userTable
+            // 
+            userTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            userTable.Dock = DockStyle.Top;
+            userTable.Location = new Point(0, 0);
+            userTable.Name = "userTable";
+            userTable.RowHeadersWidth = 51;
+            userTable.Size = new Size(829, 408);
+            userTable.TabIndex = 0;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightCyan;
             ClientSize = new Size(1263, 790);
-            Controls.Add(panel2);
+            Controls.Add(settingsPanel);
             Controls.Add(panel1);
             Controls.Add(mainPanel);
             Controls.Add(panelUpAdmin);
@@ -300,7 +332,9 @@
             panelUpAdmin.PerformLayout();
             mainPanel.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
+            settingsPanel.ResumeLayout(false);
+            userPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)userTable).EndInit();
             ResumeLayout(false);
         }
 
@@ -321,7 +355,9 @@
         private Button sortButton;
         private Button zaprosButton;
         private Button filterButton;
-        private Panel panel2;
         private Button button1;
+        private Panel settingsPanel;
+        private Panel userPanel;
+        private DataGridView userTable;
     }
 }
