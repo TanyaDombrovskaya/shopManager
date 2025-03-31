@@ -61,7 +61,7 @@
             // 
             // loginButton
             // 
-            loginButton.BackColor = Color.FromArgb(15, 0, 0);
+            loginButton.BackColor = Color.FromArgb(26, 155, 131);
             loginButton.Cursor = Cursors.Hand;
             loginButton.FlatStyle = FlatStyle.Flat;
             loginButton.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -128,11 +128,11 @@
             // autoLabel
             // 
             autoLabel.AutoSize = true;
-            autoLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            autoLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             autoLabel.ForeColor = Color.White;
             autoLabel.Location = new Point(35, 14);
             autoLabel.Name = "autoLabel";
-            autoLabel.Size = new Size(135, 28);
+            autoLabel.Size = new Size(142, 28);
             autoLabel.TabIndex = 7;
             autoLabel.Text = "Авторизация";
             // 

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             closeButton = new Label();
             adminLabel = new Label();
             nameAdmin = new Label();
@@ -46,12 +48,22 @@
             exitButton = new Button();
             settingsPanel = new Panel();
             dbPanel = new Panel();
+            infoPanel = new Panel();
+            valueLabel = new Label();
+            label6 = new Label();
+            colIndexLabel = new Label();
+            rowIndexLabel = new Label();
+            tableNameLabel = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             dbTable = new DataGridView();
             panelUpAdmin.SuspendLayout();
             mainPanel.SuspendLayout();
             panel1.SuspendLayout();
             settingsPanel.SuspendLayout();
             dbPanel.SuspendLayout();
+            infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dbTable).BeginInit();
             SuspendLayout();
             // 
@@ -114,7 +126,7 @@
             mainPanel.Dock = DockStyle.Left;
             mainPanel.Location = new Point(0, 59);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(228, 731);
+            mainPanel.Size = new Size(221, 731);
             mainPanel.TabIndex = 12;
             // 
             // settingsButton
@@ -127,7 +139,7 @@
             settingsButton.ForeColor = Color.White;
             settingsButton.Location = new Point(0, 340);
             settingsButton.Name = "settingsButton";
-            settingsButton.Size = new Size(228, 68);
+            settingsButton.Size = new Size(221, 68);
             settingsButton.TabIndex = 5;
             settingsButton.Text = "Настройки";
             settingsButton.UseVisualStyleBackColor = false;
@@ -143,7 +155,7 @@
             detailsButtons.ForeColor = Color.White;
             detailsButtons.Location = new Point(0, 272);
             detailsButtons.Name = "detailsButtons";
-            detailsButtons.Size = new Size(228, 68);
+            detailsButtons.Size = new Size(221, 68);
             detailsButtons.TabIndex = 4;
             detailsButtons.Text = "Детали заказов";
             detailsButtons.UseVisualStyleBackColor = false;
@@ -159,7 +171,7 @@
             orderButton.ForeColor = Color.White;
             orderButton.Location = new Point(0, 204);
             orderButton.Name = "orderButton";
-            orderButton.Size = new Size(228, 68);
+            orderButton.Size = new Size(221, 68);
             orderButton.TabIndex = 3;
             orderButton.Text = "Заказы";
             orderButton.UseVisualStyleBackColor = false;
@@ -175,7 +187,7 @@
             categoriesButton.ForeColor = Color.White;
             categoriesButton.Location = new Point(0, 136);
             categoriesButton.Name = "categoriesButton";
-            categoriesButton.Size = new Size(228, 68);
+            categoriesButton.Size = new Size(221, 68);
             categoriesButton.TabIndex = 2;
             categoriesButton.Text = "Категории";
             categoriesButton.UseVisualStyleBackColor = false;
@@ -191,7 +203,7 @@
             productsButton.ForeColor = Color.White;
             productsButton.Location = new Point(0, 68);
             productsButton.Name = "productsButton";
-            productsButton.Size = new Size(228, 68);
+            productsButton.Size = new Size(221, 68);
             productsButton.TabIndex = 1;
             productsButton.Text = "Товар";
             productsButton.UseVisualStyleBackColor = false;
@@ -207,7 +219,7 @@
             usersButton.ForeColor = Color.White;
             usersButton.Location = new Point(0, 0);
             usersButton.Name = "usersButton";
-            usersButton.Size = new Size(228, 68);
+            usersButton.Size = new Size(221, 68);
             usersButton.TabIndex = 0;
             usersButton.Text = "Пользователи";
             usersButton.UseVisualStyleBackColor = false;
@@ -290,21 +302,125 @@
             settingsPanel.Controls.Add(dbPanel);
             settingsPanel.Controls.Add(exitButton);
             settingsPanel.Dock = DockStyle.Fill;
-            settingsPanel.Location = new Point(228, 59);
+            settingsPanel.Location = new Point(221, 59);
             settingsPanel.Name = "settingsPanel";
-            settingsPanel.Size = new Size(829, 731);
+            settingsPanel.Size = new Size(836, 731);
             settingsPanel.TabIndex = 14;
             settingsPanel.Visible = false;
             // 
             // dbPanel
             // 
+            dbPanel.Controls.Add(infoPanel);
             dbPanel.Controls.Add(dbTable);
             dbPanel.Dock = DockStyle.Fill;
             dbPanel.Location = new Point(0, 0);
             dbPanel.Name = "dbPanel";
-            dbPanel.Size = new Size(829, 731);
+            dbPanel.Size = new Size(836, 731);
             dbPanel.TabIndex = 7;
             dbPanel.Visible = false;
+            // 
+            // infoPanel
+            // 
+            infoPanel.Anchor = AnchorStyles.None;
+            infoPanel.BackColor = Color.Teal;
+            infoPanel.Controls.Add(valueLabel);
+            infoPanel.Controls.Add(label6);
+            infoPanel.Controls.Add(colIndexLabel);
+            infoPanel.Controls.Add(rowIndexLabel);
+            infoPanel.Controls.Add(tableNameLabel);
+            infoPanel.Controls.Add(label3);
+            infoPanel.Controls.Add(label2);
+            infoPanel.Controls.Add(label1);
+            infoPanel.Location = new Point(0, 424);
+            infoPanel.Name = "infoPanel";
+            infoPanel.Size = new Size(856, 350);
+            infoPanel.TabIndex = 1;
+            // 
+            // valueLabel
+            // 
+            valueLabel.AutoSize = true;
+            valueLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            valueLabel.ForeColor = Color.White;
+            valueLabel.Location = new Point(137, 108);
+            valueLabel.Name = "valueLabel";
+            valueLabel.Size = new Size(0, 28);
+            valueLabel.TabIndex = 18;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(25, 108);
+            label6.Name = "label6";
+            label6.Size = new Size(116, 28);
+            label6.TabIndex = 17;
+            label6.Text = "Значение: ";
+            // 
+            // colIndexLabel
+            // 
+            colIndexLabel.AutoSize = true;
+            colIndexLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            colIndexLabel.ForeColor = Color.White;
+            colIndexLabel.Location = new Point(122, 52);
+            colIndexLabel.Name = "colIndexLabel";
+            colIndexLabel.Size = new Size(24, 28);
+            colIndexLabel.TabIndex = 16;
+            colIndexLabel.Text = "1";
+            // 
+            // rowIndexLabel
+            // 
+            rowIndexLabel.AutoSize = true;
+            rowIndexLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            rowIndexLabel.ForeColor = Color.White;
+            rowIndexLabel.Location = new Point(108, 80);
+            rowIndexLabel.Name = "rowIndexLabel";
+            rowIndexLabel.Size = new Size(24, 28);
+            rowIndexLabel.TabIndex = 15;
+            rowIndexLabel.Text = "1";
+            // 
+            // tableNameLabel
+            // 
+            tableNameLabel.AutoSize = true;
+            tableNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            tableNameLabel.ForeColor = Color.White;
+            tableNameLabel.Location = new Point(127, 24);
+            tableNameLabel.Name = "tableNameLabel";
+            tableNameLabel.Size = new Size(0, 28);
+            tableNameLabel.TabIndex = 14;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(24, 80);
+            label3.Name = "label3";
+            label3.Size = new Size(90, 28);
+            label3.TabIndex = 13;
+            label3.Text = "Строка: ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(25, 52);
+            label2.Name = "label2";
+            label2.Size = new Size(104, 28);
+            label2.TabIndex = 12;
+            label2.Text = "Столбец: ";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(25, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(105, 28);
+            label1.TabIndex = 11;
+            label1.Text = "Таблица: ";
             // 
             // dbTable
             // 
@@ -314,13 +430,31 @@
             dbTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dbTable.BackgroundColor = Color.LightCyan;
             dbTable.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Teal;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dbTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dbTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dbTable.Location = new Point(43, 68);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dbTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dbTable.EnableHeadersVisualStyles = false;
+            dbTable.Location = new Point(35, 68);
             dbTable.Name = "dbTable";
             dbTable.ReadOnly = true;
             dbTable.RowHeadersWidth = 51;
-            dbTable.Size = new Size(745, 329);
+            dbTable.Size = new Size(778, 329);
             dbTable.TabIndex = 0;
+            dbTable.CellClick += dbTable_CellClick;
             // 
             // AdminForm
             // 
@@ -340,6 +474,8 @@
             panel1.ResumeLayout(false);
             settingsPanel.ResumeLayout(false);
             dbPanel.ResumeLayout(false);
+            infoPanel.ResumeLayout(false);
+            infoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dbTable).EndInit();
             ResumeLayout(false);
         }
@@ -365,5 +501,14 @@
         private Panel settingsPanel;
         private Panel dbPanel;
         private DataGridView dbTable;
+        private Panel infoPanel;
+        private Label label1;
+        private Label tableNameLabel;
+        private Label label3;
+        private Label label2;
+        private Label colIndexLabel;
+        private Label rowIndexLabel;
+        private Label valueLabel;
+        private Label label6;
     }
 }

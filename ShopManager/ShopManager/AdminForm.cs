@@ -15,6 +15,9 @@ namespace ShopManager
         private Point lastMousePosition;
         public List<Button> _buttonsMain = new List<Button>();
         public List<Button> _buttonsControl = new List<Button>();
+        private int _rowIndex;
+        private int _colIndex;
+        private string _value;
 
         public AdminForm()
         {
@@ -113,6 +116,16 @@ namespace ShopManager
             }
         }
 
+
+        public void BaseValueSettings()
+        {
+            colIndexLabel.Text = "1";
+            rowIndexLabel.Text = "1";
+
+            valueLabel.Text = Convert.ToString(dbTable.Rows[0].Cells[0].Value);
+            valueLabel.Text = Convert.ToString(dbTable.Rows[0].Cells[0].Value);
+        }
+
         private void settingsButton_Click(object sender, EventArgs e)
         {
             settingsPanel.Visible = true;
@@ -125,9 +138,14 @@ namespace ShopManager
 
             DatabaseManager db = new();
             db.LoadTable(dbTable, table);
+            dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
 
             settingsPanel.Visible = false;
             dbPanel.Visible = true;
+
+            tableNameLabel.Text = table;
+
+            BaseValueSettings();
         }
 
         private void orderButton_Click(object sender, EventArgs e)
@@ -136,9 +154,14 @@ namespace ShopManager
 
             DatabaseManager db = new();
             db.LoadTable(dbTable, table);
+            dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
 
             settingsPanel.Visible = false;
             dbPanel.Visible = true;
+
+            tableNameLabel.Text = table;
+
+            BaseValueSettings();
         }
 
         private void categoriesButton_Click(object sender, EventArgs e)
@@ -147,9 +170,14 @@ namespace ShopManager
 
             DatabaseManager db = new();
             db.LoadTable(dbTable, table);
+            dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
 
             settingsPanel.Visible = false;
             dbPanel.Visible = true;
+
+            tableNameLabel.Text = table;
+
+            BaseValueSettings();
         }
 
         private void productsButton_Click(object sender, EventArgs e)
@@ -158,9 +186,14 @@ namespace ShopManager
 
             DatabaseManager db = new();
             db.LoadTable(dbTable, table);
+            dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
 
             settingsPanel.Visible = false;
             dbPanel.Visible = true;
+
+            tableNameLabel.Text = table;
+
+            BaseValueSettings();
         }
 
         private void usersButton_Click(object sender, EventArgs e)
@@ -169,9 +202,40 @@ namespace ShopManager
 
             DatabaseManager db = new();
             db.LoadTable(dbTable, table);
+            dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
+            dbTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            dbTable.ColumnHeadersDefaultCellStyle.BackColor = Color.Teal;
+            dbTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
             settingsPanel.Visible = false;
             dbPanel.Visible = true;
+
+            tableNameLabel.Text = table;
+
+            BaseValueSettings();
+        }
+
+        private void dbTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = 0;
+            int colIndex = 0;
+            string value = "";
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                rowIndex = e.RowIndex;
+                colIndex = e.ColumnIndex;
+                value = Convert.ToString(dbTable.Rows[rowIndex].Cells[colIndex].Value);
+            }
+            
+            _colIndex = colIndex + 1;
+            _rowIndex = rowIndex + 1;
+            _value = value;
+
+            colIndexLabel.Text = Convert.ToString(_colIndex);
+            rowIndexLabel.Text = Convert.ToString(_rowIndex);
+            valueLabel.Text = Convert.ToString(_value);
         }
     }
 }

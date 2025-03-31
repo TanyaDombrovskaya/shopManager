@@ -92,13 +92,13 @@ namespace ShopManager
 
         private void loginButton_MouseDown(object sender, MouseEventArgs e)
         {
-            loginButton.BackColor = Color.White;
-            loginButton.ForeColor = Color.Black;
+            loginButton.BackColor = Color.FromArgb(107, 61, 235);
+            loginButton.ForeColor = Color.White;
         }
 
         private void loginButton_MouseUp(object sender, MouseEventArgs e)
         {
-            loginButton.BackColor = Color.Black;
+            loginButton.BackColor = Color.FromArgb(26, 155, 131);
             loginButton.ForeColor = Color.White;
         }
 
