@@ -51,22 +51,22 @@
             // userLabel
             // 
             userLabel.AutoSize = true;
-            userLabel.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            userLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             userLabel.ForeColor = Color.White;
             userLabel.Location = new Point(35, 14);
             userLabel.Name = "userLabel";
-            userLabel.Size = new Size(145, 28);
+            userLabel.Size = new Size(150, 28);
             userLabel.TabIndex = 10;
             userLabel.Text = "Пользователь";
             // 
             // nameUser
             // 
             nameUser.AutoSize = true;
-            nameUser.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            nameUser.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             nameUser.ForeColor = Color.White;
             nameUser.Location = new Point(186, 14);
             nameUser.Name = "nameUser";
-            nameUser.Size = new Size(104, 28);
+            nameUser.Size = new Size(106, 28);
             nameUser.TabIndex = 11;
             nameUser.Text = "nameUser";
             // 

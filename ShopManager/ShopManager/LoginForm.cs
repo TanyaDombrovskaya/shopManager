@@ -27,8 +27,14 @@ namespace ShopManager
             {
                 Form nextForm = null;
 
-                if (dostup.Equals("admin", StringComparison.OrdinalIgnoreCase))
+                if (dostup.Equals("manager", StringComparison.OrdinalIgnoreCase))
                 {
+                    nextForm = new ManagerForm();
+
+                    ((ManagerForm)nextForm).NameManager = user;
+                }
+                else if (dostup.Equals("admin", StringComparison.OrdinalIgnoreCase))
+                { 
                     nextForm = new AdminForm();
 
                     ((AdminForm)nextForm).NameAdmin = user;
@@ -75,6 +81,14 @@ namespace ShopManager
 
                     adminform.NameAdmin = login;
                 }
+                if (role.Equals("manager", StringComparison.OrdinalIgnoreCase))
+                {
+                    this.Hide();
+                    ManagerForm managerform = new ManagerForm();
+                    managerform.Show();
+
+                    managerform.NameManager = login;
+                }
                 else if (role.Equals("user", StringComparison.OrdinalIgnoreCase))
                 {
                     this.Hide();
@@ -113,7 +127,5 @@ namespace ShopManager
             RegistrationForm registration = new RegistrationForm();
             registration.Show();
         }
-
-
     }
 }

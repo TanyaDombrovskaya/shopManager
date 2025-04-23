@@ -29,7 +29,6 @@ C:\Kolledg\kursach\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.
 C:\Kolledg\kursach\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.RegistrationForm.resources
 C:\Kolledg\kursach\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.Base.resources
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.csproj.AssemblyReference.cache
-C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.AdminForm.resources
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.Base.resources
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.RegistrationForm.resources
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.UserForm.resources
@@ -64,3 +63,5 @@ C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopMana.
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.genruntimeconfig.cache
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ref\ShopManager.dll
 C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.LoginForm.resources
+C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.ManagerForm.resources
+C:\git\c#\shopManager\ShopManager\ShopManager\obj\Debug\net8.0-windows\ShopManager.AdminForm.resources

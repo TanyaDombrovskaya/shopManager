@@ -102,7 +102,7 @@
             // 
             // RegButton
             // 
-            RegButton.BackColor = Color.FromArgb(15, 0, 0);
+            RegButton.BackColor = Color.FromArgb(26, 155, 131);
             RegButton.Cursor = Cursors.Hand;
             RegButton.FlatStyle = FlatStyle.Flat;
             RegButton.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);

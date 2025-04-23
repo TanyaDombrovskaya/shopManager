@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            closeButton = new Label();
-            adminLabel = new Label();
-            nameAdmin = new Label();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelUpAdmin = new Panel();
+            adminLabel = new Label();
+            closeButton = new Label();
+            nameAdmin = new Label();
             mainPanel = new Panel();
-            settingsButton = new Button();
-            detailsButtons = new Button();
-            orderButton = new Button();
-            categoriesButton = new Button();
-            productsButton = new Button();
-            usersButton = new Button();
-            panel1 = new Panel();
-            zaprosButton = new Button();
-            filterButton = new Button();
-            sortButton = new Button();
             exitButton = new Button();
-            settingsPanel = new Panel();
+            pravaButton = new Button();
+            usersButton = new Button();
             dbPanel = new Panel();
+            panel1 = new Panel();
+            VLA = new Label();
+            label5 = new Label();
+            CILA = new Label();
+            RILA = new Label();
+            tableNameLabelAdmin = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
             infoPanel = new Panel();
             valueLabel = new Label();
             label6 = new Label();
@@ -60,47 +60,11 @@
             dbTable = new DataGridView();
             panelUpAdmin.SuspendLayout();
             mainPanel.SuspendLayout();
-            panel1.SuspendLayout();
-            settingsPanel.SuspendLayout();
             dbPanel.SuspendLayout();
+            panel1.SuspendLayout();
             infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dbTable).BeginInit();
             SuspendLayout();
-            // 
-            // closeButton
-            // 
-            closeButton.AutoSize = true;
-            closeButton.Cursor = Cursors.Hand;
-            closeButton.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            closeButton.ForeColor = Color.FromArgb(192, 0, 0);
-            closeButton.Location = new Point(1221, 12);
-            closeButton.Name = "closeButton";
-            closeButton.Size = new Size(30, 31);
-            closeButton.TabIndex = 8;
-            closeButton.Text = "X";
-            closeButton.Click += closeButton_Click;
-            // 
-            // adminLabel
-            // 
-            adminLabel.AutoSize = true;
-            adminLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            adminLabel.ForeColor = Color.White;
-            adminLabel.Location = new Point(35, 14);
-            adminLabel.Name = "adminLabel";
-            adminLabel.Size = new Size(168, 28);
-            adminLabel.TabIndex = 9;
-            adminLabel.Text = "Администратор";
-            // 
-            // nameAdmin
-            // 
-            nameAdmin.AutoSize = true;
-            nameAdmin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            nameAdmin.ForeColor = Color.White;
-            nameAdmin.Location = new Point(203, 14);
-            nameAdmin.Name = "nameAdmin";
-            nameAdmin.Size = new Size(126, 28);
-            nameAdmin.TabIndex = 10;
-            nameAdmin.Text = "nameAdmin";
             // 
             // panelUpAdmin
             // 
@@ -111,103 +75,86 @@
             panelUpAdmin.Dock = DockStyle.Top;
             panelUpAdmin.Location = new Point(0, 0);
             panelUpAdmin.Name = "panelUpAdmin";
-            panelUpAdmin.Size = new Size(1263, 59);
-            panelUpAdmin.TabIndex = 11;
+            panelUpAdmin.Size = new Size(1245, 59);
+            panelUpAdmin.TabIndex = 12;
+            // 
+            // adminLabel
+            // 
+            adminLabel.AutoSize = true;
+            adminLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            adminLabel.ForeColor = Color.White;
+            adminLabel.Location = new Point(35, 14);
+            adminLabel.Name = "adminLabel";
+            adminLabel.Size = new Size(80, 28);
+            adminLabel.TabIndex = 9;
+            adminLabel.Text = "Админ";
+            // 
+            // closeButton
+            // 
+            closeButton.AutoSize = true;
+            closeButton.Cursor = Cursors.Hand;
+            closeButton.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            closeButton.ForeColor = Color.FromArgb(192, 0, 0);
+            closeButton.Location = new Point(1203, 12);
+            closeButton.Name = "closeButton";
+            closeButton.Size = new Size(30, 31);
+            closeButton.TabIndex = 8;
+            closeButton.Text = "X";
+            closeButton.Click += closeButton_Click;
+            // 
+            // nameAdmin
+            // 
+            nameAdmin.AutoSize = true;
+            nameAdmin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            nameAdmin.ForeColor = Color.White;
+            nameAdmin.Location = new Point(121, 14);
+            nameAdmin.Name = "nameAdmin";
+            nameAdmin.Size = new Size(126, 28);
+            nameAdmin.TabIndex = 10;
+            nameAdmin.Text = "nameAdmin\r\n";
             // 
             // mainPanel
             // 
             mainPanel.BackColor = Color.FromArgb(99, 164, 191);
-            mainPanel.Controls.Add(settingsButton);
-            mainPanel.Controls.Add(detailsButtons);
-            mainPanel.Controls.Add(orderButton);
-            mainPanel.Controls.Add(categoriesButton);
-            mainPanel.Controls.Add(productsButton);
+            mainPanel.Controls.Add(exitButton);
+            mainPanel.Controls.Add(pravaButton);
             mainPanel.Controls.Add(usersButton);
             mainPanel.Dock = DockStyle.Left;
             mainPanel.Location = new Point(0, 59);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(221, 731);
-            mainPanel.TabIndex = 12;
+            mainPanel.Size = new Size(221, 684);
+            mainPanel.TabIndex = 13;
             // 
-            // settingsButton
+            // exitButton
             // 
-            settingsButton.BackColor = Color.FromArgb(26, 155, 131);
-            settingsButton.Cursor = Cursors.Hand;
-            settingsButton.Dock = DockStyle.Top;
-            settingsButton.FlatStyle = FlatStyle.Flat;
-            settingsButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            settingsButton.ForeColor = Color.White;
-            settingsButton.Location = new Point(0, 340);
-            settingsButton.Name = "settingsButton";
-            settingsButton.Size = new Size(221, 68);
-            settingsButton.TabIndex = 5;
-            settingsButton.Text = "Настройки";
-            settingsButton.UseVisualStyleBackColor = false;
-            settingsButton.Click += settingsButton_Click;
+            exitButton.BackColor = Color.FromArgb(26, 155, 131);
+            exitButton.Cursor = Cursors.Hand;
+            exitButton.Dock = DockStyle.Top;
+            exitButton.FlatStyle = FlatStyle.Flat;
+            exitButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            exitButton.ForeColor = Color.White;
+            exitButton.Location = new Point(0, 136);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(221, 68);
+            exitButton.TabIndex = 7;
+            exitButton.Text = "Выйти";
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
             // 
-            // detailsButtons
+            // pravaButton
             // 
-            detailsButtons.BackColor = Color.FromArgb(26, 155, 131);
-            detailsButtons.Cursor = Cursors.Hand;
-            detailsButtons.Dock = DockStyle.Top;
-            detailsButtons.FlatStyle = FlatStyle.Flat;
-            detailsButtons.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            detailsButtons.ForeColor = Color.White;
-            detailsButtons.Location = new Point(0, 272);
-            detailsButtons.Name = "detailsButtons";
-            detailsButtons.Size = new Size(221, 68);
-            detailsButtons.TabIndex = 4;
-            detailsButtons.Text = "Детали заказов";
-            detailsButtons.UseVisualStyleBackColor = false;
-            detailsButtons.Click += detailsButtons_Click;
-            // 
-            // orderButton
-            // 
-            orderButton.BackColor = Color.FromArgb(26, 155, 131);
-            orderButton.Cursor = Cursors.Hand;
-            orderButton.Dock = DockStyle.Top;
-            orderButton.FlatStyle = FlatStyle.Flat;
-            orderButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            orderButton.ForeColor = Color.White;
-            orderButton.Location = new Point(0, 204);
-            orderButton.Name = "orderButton";
-            orderButton.Size = new Size(221, 68);
-            orderButton.TabIndex = 3;
-            orderButton.Text = "Заказы";
-            orderButton.UseVisualStyleBackColor = false;
-            orderButton.Click += orderButton_Click;
-            // 
-            // categoriesButton
-            // 
-            categoriesButton.BackColor = Color.FromArgb(26, 155, 131);
-            categoriesButton.Cursor = Cursors.Hand;
-            categoriesButton.Dock = DockStyle.Top;
-            categoriesButton.FlatStyle = FlatStyle.Flat;
-            categoriesButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            categoriesButton.ForeColor = Color.White;
-            categoriesButton.Location = new Point(0, 136);
-            categoriesButton.Name = "categoriesButton";
-            categoriesButton.Size = new Size(221, 68);
-            categoriesButton.TabIndex = 2;
-            categoriesButton.Text = "Категории";
-            categoriesButton.UseVisualStyleBackColor = false;
-            categoriesButton.Click += categoriesButton_Click;
-            // 
-            // productsButton
-            // 
-            productsButton.BackColor = Color.FromArgb(26, 155, 131);
-            productsButton.Cursor = Cursors.Hand;
-            productsButton.Dock = DockStyle.Top;
-            productsButton.FlatStyle = FlatStyle.Flat;
-            productsButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            productsButton.ForeColor = Color.White;
-            productsButton.Location = new Point(0, 68);
-            productsButton.Name = "productsButton";
-            productsButton.Size = new Size(221, 68);
-            productsButton.TabIndex = 1;
-            productsButton.Text = "Товар";
-            productsButton.UseVisualStyleBackColor = false;
-            productsButton.Click += productsButton_Click;
+            pravaButton.BackColor = Color.FromArgb(26, 155, 131);
+            pravaButton.Cursor = Cursors.Hand;
+            pravaButton.Dock = DockStyle.Top;
+            pravaButton.FlatStyle = FlatStyle.Flat;
+            pravaButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            pravaButton.ForeColor = Color.White;
+            pravaButton.Location = new Point(0, 68);
+            pravaButton.Name = "pravaButton";
+            pravaButton.Size = new Size(221, 68);
+            pravaButton.TabIndex = 6;
+            pravaButton.Text = "Права";
+            pravaButton.UseVisualStyleBackColor = false;
             // 
             // usersButton
             // 
@@ -225,99 +172,120 @@
             usersButton.UseVisualStyleBackColor = false;
             usersButton.Click += usersButton_Click;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(99, 164, 191);
-            panel1.Controls.Add(zaprosButton);
-            panel1.Controls.Add(filterButton);
-            panel1.Controls.Add(sortButton);
-            panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1057, 59);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(206, 731);
-            panel1.TabIndex = 13;
-            // 
-            // zaprosButton
-            // 
-            zaprosButton.BackColor = Color.FromArgb(26, 155, 131);
-            zaprosButton.Cursor = Cursors.Hand;
-            zaprosButton.Dock = DockStyle.Top;
-            zaprosButton.FlatStyle = FlatStyle.Flat;
-            zaprosButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            zaprosButton.ForeColor = Color.White;
-            zaprosButton.Location = new Point(0, 136);
-            zaprosButton.Name = "zaprosButton";
-            zaprosButton.Size = new Size(206, 68);
-            zaprosButton.TabIndex = 3;
-            zaprosButton.Text = "Запрос";
-            zaprosButton.UseVisualStyleBackColor = false;
-            // 
-            // filterButton
-            // 
-            filterButton.BackColor = Color.FromArgb(26, 155, 131);
-            filterButton.Cursor = Cursors.Hand;
-            filterButton.Dock = DockStyle.Top;
-            filterButton.FlatStyle = FlatStyle.Flat;
-            filterButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            filterButton.ForeColor = Color.White;
-            filterButton.Location = new Point(0, 68);
-            filterButton.Name = "filterButton";
-            filterButton.Size = new Size(206, 68);
-            filterButton.TabIndex = 2;
-            filterButton.Text = "Фильрация";
-            filterButton.UseVisualStyleBackColor = false;
-            // 
-            // sortButton
-            // 
-            sortButton.BackColor = Color.FromArgb(26, 155, 131);
-            sortButton.Cursor = Cursors.Hand;
-            sortButton.Dock = DockStyle.Top;
-            sortButton.FlatStyle = FlatStyle.Flat;
-            sortButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            sortButton.ForeColor = Color.White;
-            sortButton.Location = new Point(0, 0);
-            sortButton.Name = "sortButton";
-            sortButton.Size = new Size(206, 68);
-            sortButton.TabIndex = 1;
-            sortButton.Text = "Сортировка";
-            sortButton.UseVisualStyleBackColor = false;
-            // 
-            // exitButton
-            // 
-            exitButton.BackColor = Color.FromArgb(192, 0, 0);
-            exitButton.Cursor = Cursors.Hand;
-            exitButton.FlatStyle = FlatStyle.Flat;
-            exitButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            exitButton.ForeColor = Color.White;
-            exitButton.Location = new Point(324, 568);
-            exitButton.Name = "exitButton";
-            exitButton.Size = new Size(228, 68);
-            exitButton.TabIndex = 6;
-            exitButton.Text = "Выйти";
-            exitButton.UseVisualStyleBackColor = false;
-            exitButton.Click += exitButton_Click;
-            // 
-            // settingsPanel
-            // 
-            settingsPanel.Controls.Add(dbPanel);
-            settingsPanel.Controls.Add(exitButton);
-            settingsPanel.Dock = DockStyle.Fill;
-            settingsPanel.Location = new Point(221, 59);
-            settingsPanel.Name = "settingsPanel";
-            settingsPanel.Size = new Size(836, 731);
-            settingsPanel.TabIndex = 14;
-            settingsPanel.Visible = false;
-            // 
             // dbPanel
             // 
+            dbPanel.Controls.Add(panel1);
             dbPanel.Controls.Add(infoPanel);
             dbPanel.Controls.Add(dbTable);
-            dbPanel.Dock = DockStyle.Fill;
-            dbPanel.Location = new Point(0, 0);
+            dbPanel.Dock = DockStyle.Right;
+            dbPanel.Location = new Point(219, 59);
             dbPanel.Name = "dbPanel";
-            dbPanel.Size = new Size(836, 731);
-            dbPanel.TabIndex = 7;
+            dbPanel.Size = new Size(1026, 684);
+            dbPanel.TabIndex = 14;
             dbPanel.Visible = false;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.None;
+            panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(VLA);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(CILA);
+            panel1.Controls.Add(RILA);
+            panel1.Controls.Add(tableNameLabelAdmin);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(label11);
+            panel1.Controls.Add(label12);
+            panel1.Location = new Point(0, 396);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1053, 314);
+            panel1.TabIndex = 2;
+            // 
+            // VLA
+            // 
+            VLA.AutoSize = true;
+            VLA.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            VLA.ForeColor = Color.White;
+            VLA.Location = new Point(137, 108);
+            VLA.Name = "VLA";
+            VLA.Size = new Size(0, 28);
+            VLA.TabIndex = 18;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(27, 108);
+            label5.Name = "label5";
+            label5.Size = new Size(116, 28);
+            label5.TabIndex = 17;
+            label5.Text = "Значение: ";
+            // 
+            // CILA
+            // 
+            CILA.AutoSize = true;
+            CILA.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            CILA.ForeColor = Color.White;
+            CILA.Location = new Point(122, 52);
+            CILA.Name = "CILA";
+            CILA.Size = new Size(24, 28);
+            CILA.TabIndex = 16;
+            CILA.Text = "1";
+            // 
+            // RILA
+            // 
+            RILA.AutoSize = true;
+            RILA.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            RILA.ForeColor = Color.White;
+            RILA.Location = new Point(108, 80);
+            RILA.Name = "RILA";
+            RILA.Size = new Size(24, 28);
+            RILA.TabIndex = 15;
+            RILA.Text = "1";
+            // 
+            // tableNameLabelAdmin
+            // 
+            tableNameLabelAdmin.AutoSize = true;
+            tableNameLabelAdmin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            tableNameLabelAdmin.ForeColor = Color.White;
+            tableNameLabelAdmin.Location = new Point(127, 24);
+            tableNameLabelAdmin.Name = "tableNameLabelAdmin";
+            tableNameLabelAdmin.Size = new Size(0, 28);
+            tableNameLabelAdmin.TabIndex = 14;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(24, 80);
+            label10.Name = "label10";
+            label10.Size = new Size(90, 28);
+            label10.TabIndex = 13;
+            label10.Text = "Строка: ";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(25, 52);
+            label11.Name = "label11";
+            label11.Size = new Size(104, 28);
+            label11.TabIndex = 12;
+            label11.Text = "Столбец: ";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(27, 24);
+            label12.Name = "label12";
+            label12.Size = new Size(105, 28);
+            label12.TabIndex = 11;
+            label12.Text = "Таблица: ";
             // 
             // infoPanel
             // 
@@ -331,7 +299,7 @@
             infoPanel.Controls.Add(label3);
             infoPanel.Controls.Add(label2);
             infoPanel.Controls.Add(label1);
-            infoPanel.Location = new Point(0, 424);
+            infoPanel.Location = new Point(413, 716);
             infoPanel.Name = "infoPanel";
             infoPanel.Size = new Size(856, 350);
             infoPanel.TabIndex = 1;
@@ -430,40 +398,38 @@
             dbTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dbTable.BackgroundColor = Color.LightCyan;
             dbTable.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Teal;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dbTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Teal;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dbTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dbTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dbTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dbTable.DefaultCellStyle = dataGridViewCellStyle4;
             dbTable.EnableHeadersVisualStyles = false;
-            dbTable.Location = new Point(35, 68);
+            dbTable.Location = new Point(56, 30);
             dbTable.Name = "dbTable";
             dbTable.ReadOnly = true;
             dbTable.RowHeadersWidth = 51;
             dbTable.Size = new Size(778, 329);
             dbTable.TabIndex = 0;
-            dbTable.CellClick += dbTable_CellClick;
+            dbTable.CellClick += dbTable_CellClick_1;
             // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightCyan;
-            ClientSize = new Size(1263, 790);
-            Controls.Add(settingsPanel);
-            Controls.Add(panel1);
+            ClientSize = new Size(1245, 743);
+            Controls.Add(dbPanel);
             Controls.Add(mainPanel);
             Controls.Add(panelUpAdmin);
             Name = "AdminForm";
@@ -471,9 +437,9 @@
             panelUpAdmin.ResumeLayout(false);
             panelUpAdmin.PerformLayout();
             mainPanel.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            settingsPanel.ResumeLayout(false);
             dbPanel.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             infoPanel.ResumeLayout(false);
             infoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dbTable).EndInit();
@@ -481,34 +447,33 @@
         }
 
         #endregion
-
-        private Label closeButton;
-        private Label adminLabel;
-        private Label nameAdmin;
         private Panel panelUpAdmin;
+        private Label adminLabel;
+        private Label closeButton;
+        private Label nameAdmin;
         private Panel mainPanel;
-        private Button usersButton;
-        private Button settingsButton;
-        private Button detailsButtons;
-        private Button orderButton;
-        private Button categoriesButton;
-        private Button productsButton;
-        private Panel panel1;
-        private Button sortButton;
-        private Button zaprosButton;
-        private Button filterButton;
         private Button exitButton;
-        private Panel settingsPanel;
+        private Button pravaButton;
+        private Button usersButton;
         private Panel dbPanel;
-        private DataGridView dbTable;
         private Panel infoPanel;
-        private Label label1;
+        private Label valueLabel;
+        private Label label6;
+        private Label colIndexLabel;
+        private Label rowIndexLabel;
         private Label tableNameLabel;
         private Label label3;
         private Label label2;
-        private Label colIndexLabel;
-        private Label rowIndexLabel;
-        private Label valueLabel;
-        private Label label6;
+        private Label label1;
+        private DataGridView dbTable;
+        private Panel panel1;
+        private Label VLA;
+        private Label label5;
+        private Label CILA;
+        private Label RILA;
+        private Label tableNameLabelAdmin;
+        private Label label10;
+        private Label label11;
+        private Label label12;
     }
 }
