@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace ShopManager
         private int _rowIndex;
         private int _colIndex;
         private string _value;
+        private List<string> prava = new List<string> { "user", "admin", "manager" };
 
         public AdminForm()
         {
@@ -101,6 +103,10 @@ namespace ShopManager
 
         private void usersButton_Click(object sender, EventArgs e)
         {
+            dbTable.Visible = true;
+            IPA.Visible = true;
+            pravaPanel.Visible = false;
+
             string table = "users";
 
             DatabaseManager db = new();
@@ -140,5 +146,50 @@ namespace ShopManager
             VLA.Text = Convert.ToString(_value);
         }
 
+        private void pravaButton_Click(object sender, EventArgs e)
+        {
+            pravaPanel.Visible = true;
+            dbTable.Visible = false;
+            IPA.Visible = false;
+
+            pravaButton.FlatAppearance.BorderSize = 0;
+
+            DatabaseManager db = new();
+            List<string> users = db.UserList();
+
+            FillBox(users, usersBox);
+            FillBox(prava, pravaBox);
+        }
+
+        private void FillBox(List<string> list, ComboBox box)
+        {
+            box.Items.Clear();
+
+            foreach (string item in list)
+            {
+                box.Items.Add(item);
+            }
+        }
+
+        private void changePrava_Click(object sender, EventArgs e)
+        {
+            string username = usersBox.SelectedItem.ToString();
+            string dostup = pravaBox.SelectedItem.ToString();
+
+            try
+            {
+                DatabaseManager db = new();
+                db.ChangePrava(dostup, username);
+
+                MessageBox.Show("Успешно");
+
+                usersBox.SelectedIndex = -1;
+                pravaBox.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

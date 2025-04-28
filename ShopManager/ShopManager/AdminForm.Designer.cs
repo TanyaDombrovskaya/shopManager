@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelUpAdmin = new Panel();
             adminLabel = new Label();
             closeButton = new Label();
@@ -39,7 +39,13 @@
             pravaButton = new Button();
             usersButton = new Button();
             dbPanel = new Panel();
-            panel1 = new Panel();
+            pravaPanel = new Panel();
+            label7 = new Label();
+            label4 = new Label();
+            changePrava = new Button();
+            pravaBox = new ComboBox();
+            usersBox = new ComboBox();
+            IPA = new Panel();
             VLA = new Label();
             label5 = new Label();
             CILA = new Label();
@@ -61,7 +67,8 @@
             panelUpAdmin.SuspendLayout();
             mainPanel.SuspendLayout();
             dbPanel.SuspendLayout();
-            panel1.SuspendLayout();
+            pravaPanel.SuspendLayout();
+            IPA.SuspendLayout();
             infoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dbTable).BeginInit();
             SuspendLayout();
@@ -155,6 +162,7 @@
             pravaButton.TabIndex = 6;
             pravaButton.Text = "Права";
             pravaButton.UseVisualStyleBackColor = false;
+            pravaButton.Click += pravaButton_Click;
             // 
             // usersButton
             // 
@@ -174,7 +182,8 @@
             // 
             // dbPanel
             // 
-            dbPanel.Controls.Add(panel1);
+            dbPanel.Controls.Add(pravaPanel);
+            dbPanel.Controls.Add(IPA);
             dbPanel.Controls.Add(infoPanel);
             dbPanel.Controls.Add(dbTable);
             dbPanel.Dock = DockStyle.Right;
@@ -184,22 +193,93 @@
             dbPanel.TabIndex = 14;
             dbPanel.Visible = false;
             // 
-            // panel1
+            // pravaPanel
             // 
-            panel1.Anchor = AnchorStyles.None;
-            panel1.BackColor = Color.Teal;
-            panel1.Controls.Add(VLA);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(CILA);
-            panel1.Controls.Add(RILA);
-            panel1.Controls.Add(tableNameLabelAdmin);
-            panel1.Controls.Add(label10);
-            panel1.Controls.Add(label11);
-            panel1.Controls.Add(label12);
-            panel1.Location = new Point(0, 396);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1053, 314);
-            panel1.TabIndex = 2;
+            pravaPanel.BackColor = Color.Teal;
+            pravaPanel.Controls.Add(label7);
+            pravaPanel.Controls.Add(label4);
+            pravaPanel.Controls.Add(changePrava);
+            pravaPanel.Controls.Add(pravaBox);
+            pravaPanel.Controls.Add(usersBox);
+            pravaPanel.Location = new Point(82, 30);
+            pravaPanel.Name = "pravaPanel";
+            pravaPanel.Size = new Size(429, 251);
+            pravaPanel.TabIndex = 3;
+            pravaPanel.Visible = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(108, 86);
+            label7.Name = "label7";
+            label7.Size = new Size(73, 28);
+            label7.TabIndex = 11;
+            label7.Text = "Права";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(40, 28);
+            label4.Name = "label4";
+            label4.Size = new Size(152, 28);
+            label4.TabIndex = 10;
+            label4.Text = "Пользователи";
+            // 
+            // changePrava
+            // 
+            changePrava.BackColor = Color.White;
+            changePrava.FlatStyle = FlatStyle.Flat;
+            changePrava.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            changePrava.ForeColor = Color.Black;
+            changePrava.Location = new Point(108, 156);
+            changePrava.Name = "changePrava";
+            changePrava.Size = new Size(215, 55);
+            changePrava.TabIndex = 2;
+            changePrava.Text = "Изменить";
+            changePrava.UseVisualStyleBackColor = false;
+            changePrava.Click += changePrava_Click;
+            // 
+            // pravaBox
+            // 
+            pravaBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            pravaBox.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            pravaBox.FormattingEnabled = true;
+            pravaBox.Location = new Point(199, 90);
+            pravaBox.Name = "pravaBox";
+            pravaBox.Size = new Size(151, 36);
+            pravaBox.TabIndex = 1;
+            // 
+            // usersBox
+            // 
+            usersBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            usersBox.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            usersBox.FormattingEnabled = true;
+            usersBox.Location = new Point(199, 32);
+            usersBox.Name = "usersBox";
+            usersBox.Size = new Size(151, 36);
+            usersBox.TabIndex = 0;
+            // 
+            // IPA
+            // 
+            IPA.Anchor = AnchorStyles.None;
+            IPA.BackColor = Color.Teal;
+            IPA.Controls.Add(VLA);
+            IPA.Controls.Add(label5);
+            IPA.Controls.Add(CILA);
+            IPA.Controls.Add(RILA);
+            IPA.Controls.Add(tableNameLabelAdmin);
+            IPA.Controls.Add(label10);
+            IPA.Controls.Add(label11);
+            IPA.Controls.Add(label12);
+            IPA.Location = new Point(0, 396);
+            IPA.Name = "IPA";
+            IPA.Size = new Size(1053, 314);
+            IPA.TabIndex = 2;
+            IPA.Visible = false;
             // 
             // VLA
             // 
@@ -398,23 +478,23 @@
             dbTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dbTable.BackgroundColor = Color.LightCyan;
             dbTable.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Teal;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dbTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Teal;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dbTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dbTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dbTable.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dbTable.DefaultCellStyle = dataGridViewCellStyle2;
             dbTable.EnableHeadersVisualStyles = false;
             dbTable.Location = new Point(56, 30);
             dbTable.Name = "dbTable";
@@ -422,6 +502,7 @@
             dbTable.RowHeadersWidth = 51;
             dbTable.Size = new Size(778, 329);
             dbTable.TabIndex = 0;
+            dbTable.Visible = false;
             dbTable.CellClick += dbTable_CellClick_1;
             // 
             // AdminForm
@@ -438,8 +519,10 @@
             panelUpAdmin.PerformLayout();
             mainPanel.ResumeLayout(false);
             dbPanel.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pravaPanel.ResumeLayout(false);
+            pravaPanel.PerformLayout();
+            IPA.ResumeLayout(false);
+            IPA.PerformLayout();
             infoPanel.ResumeLayout(false);
             infoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dbTable).EndInit();
@@ -466,7 +549,7 @@
         private Label label2;
         private Label label1;
         private DataGridView dbTable;
-        private Panel panel1;
+        private Panel IPA;
         private Label VLA;
         private Label label5;
         private Label CILA;
@@ -475,5 +558,11 @@
         private Label label10;
         private Label label11;
         private Label label12;
+        private Panel pravaPanel;
+        private ComboBox usersBox;
+        private ComboBox pravaBox;
+        private Button changePrava;
+        private Label label7;
+        private Label label4;
     }
 }

@@ -188,5 +188,44 @@ namespace ShopManager
                 dataGridView.Refresh();
             }
         }
+
+        public List<string> UserList()
+        {
+            List<string> users = new List<string>();
+
+            using (var connection = _connectionDB.GetConnection())
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand("SELECT username FROM users", connection);
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        users.Add(reader["username"].ToString());
+                    }
+                }
+            }
+
+            return users;
+        }
+
+        public void ChangePrava(string dostup, string username)
+        {
+            using (var connection = _connectionDB.GetConnection())
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand("UPDATE `users` SET `dostup` = @d WHERE `username` = @u", connection);
+                command.Parameters.Add("@d", MySqlDbType.VarChar).Value = dostup;
+                command.Parameters.Add("@u", MySqlDbType.VarChar).Value = username;
+
+                command.ExecuteNonQuery();
+            }
+        }
+
     }
 }
