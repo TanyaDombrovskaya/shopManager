@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelUpAdmin = new Panel();
             adminLabel = new Label();
             closeButton = new Label();
@@ -39,6 +39,10 @@
             pravaButton = new Button();
             usersButton = new Button();
             dbPanel = new Panel();
+            banPanel = new Panel();
+            banButton = new Button();
+            label8 = new Label();
+            userBox = new ComboBox();
             pravaPanel = new Panel();
             label7 = new Label();
             label4 = new Label();
@@ -67,6 +71,7 @@
             panelUpAdmin.SuspendLayout();
             mainPanel.SuspendLayout();
             dbPanel.SuspendLayout();
+            banPanel.SuspendLayout();
             pravaPanel.SuspendLayout();
             IPA.SuspendLayout();
             infoPanel.SuspendLayout();
@@ -182,6 +187,7 @@
             // 
             // dbPanel
             // 
+            dbPanel.Controls.Add(banPanel);
             dbPanel.Controls.Add(pravaPanel);
             dbPanel.Controls.Add(IPA);
             dbPanel.Controls.Add(infoPanel);
@@ -193,6 +199,53 @@
             dbPanel.TabIndex = 14;
             dbPanel.Visible = false;
             // 
+            // banPanel
+            // 
+            banPanel.BackColor = Color.Teal;
+            banPanel.Controls.Add(banButton);
+            banPanel.Controls.Add(label8);
+            banPanel.Controls.Add(userBox);
+            banPanel.Location = new Point(550, 153);
+            banPanel.Name = "banPanel";
+            banPanel.Size = new Size(429, 237);
+            banPanel.TabIndex = 12;
+            banPanel.Visible = false;
+            // 
+            // banButton
+            // 
+            banButton.BackColor = Color.White;
+            banButton.FlatStyle = FlatStyle.Flat;
+            banButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            banButton.ForeColor = Color.Black;
+            banButton.Location = new Point(108, 129);
+            banButton.Name = "banButton";
+            banButton.Size = new Size(215, 55);
+            banButton.TabIndex = 13;
+            banButton.Text = "Выдать бан";
+            banButton.UseVisualStyleBackColor = false;
+            banButton.Click += banButton_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(55, 55);
+            label8.Name = "label8";
+            label8.Size = new Size(152, 28);
+            label8.TabIndex = 12;
+            label8.Text = "Пользователи";
+            // 
+            // userBox
+            // 
+            userBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            userBox.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            userBox.FormattingEnabled = true;
+            userBox.Location = new Point(214, 59);
+            userBox.Name = "userBox";
+            userBox.Size = new Size(151, 36);
+            userBox.TabIndex = 11;
+            // 
             // pravaPanel
             // 
             pravaPanel.BackColor = Color.Teal;
@@ -201,7 +254,7 @@
             pravaPanel.Controls.Add(changePrava);
             pravaPanel.Controls.Add(pravaBox);
             pravaPanel.Controls.Add(usersBox);
-            pravaPanel.Location = new Point(82, 30);
+            pravaPanel.Location = new Point(78, 153);
             pravaPanel.Name = "pravaPanel";
             pravaPanel.Size = new Size(429, 251);
             pravaPanel.TabIndex = 3;
@@ -478,23 +531,23 @@
             dbTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dbTable.BackgroundColor = Color.LightCyan;
             dbTable.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Teal;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dbTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Teal;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dbTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dbTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dbTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dbTable.DefaultCellStyle = dataGridViewCellStyle4;
             dbTable.EnableHeadersVisualStyles = false;
             dbTable.Location = new Point(56, 30);
             dbTable.Name = "dbTable";
@@ -519,6 +572,8 @@
             panelUpAdmin.PerformLayout();
             mainPanel.ResumeLayout(false);
             dbPanel.ResumeLayout(false);
+            banPanel.ResumeLayout(false);
+            banPanel.PerformLayout();
             pravaPanel.ResumeLayout(false);
             pravaPanel.PerformLayout();
             IPA.ResumeLayout(false);
@@ -564,5 +619,9 @@
         private Button changePrava;
         private Label label7;
         private Label label4;
+        private Panel banPanel;
+        private Button banButton;
+        private Label label8;
+        private ComboBox userBox;
     }
 }

@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\git\\c#\\shopManager\\ShopManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,24 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "DatabaseManager.cs",
               "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\DatabaseManager.cs",
               "RelativeDocumentMoniker": "ShopManager\\DatabaseManager.cs",
               "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\DatabaseManager.cs",
               "RelativeToolTip": "ShopManager\\DatabaseManager.cs",
-              "ViewState": "AgIAAM8AAAAAAAAAAAAAwNcAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAswOoAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T13:07:16.264Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AdminForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\AdminForm.cs",
               "RelativeDocumentMoniker": "ShopManager\\AdminForm.cs",
@@ -57,7 +57,7 @@
               "RelativeDocumentMoniker": "ShopManager\\AdminForm.cs",
               "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\AdminForm.cs",
               "RelativeToolTip": "ShopManager\\AdminForm.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAgwLMAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAawGwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T11:55:09.961Z",
               "EditorCaption": ""

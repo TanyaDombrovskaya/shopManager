@@ -1,5 +1,8 @@
-﻿using Microsoft.VisualBasic.Logging;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Logging;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Security.Cryptography;
@@ -227,5 +230,18 @@ namespace ShopManager
             }
         }
 
+        public void UserBan(string username)
+        {
+            using (var connection = _connectionDB.GetConnection())
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand("UPDATE `users` SET `dostup` = @d WHERE `username` = @u", connection);
+                command.Parameters.Add("@d", MySqlDbType.VarChar).Value = "no";
+                command.Parameters.Add("@u", MySqlDbType.VarChar).Value = username;
+
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

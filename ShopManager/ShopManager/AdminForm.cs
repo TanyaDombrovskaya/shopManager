@@ -106,6 +106,7 @@ namespace ShopManager
             dbTable.Visible = true;
             IPA.Visible = true;
             pravaPanel.Visible = false;
+            banPanel.Visible = false;
 
             string table = "users";
 
@@ -149,6 +150,7 @@ namespace ShopManager
         private void pravaButton_Click(object sender, EventArgs e)
         {
             pravaPanel.Visible = true;
+            banPanel.Visible = true;
             dbTable.Visible = false;
             IPA.Visible = false;
 
@@ -158,7 +160,9 @@ namespace ShopManager
             List<string> users = db.UserList();
 
             FillBox(users, usersBox);
+            FillBox(users, userBox);
             FillBox(prava, pravaBox);
+
         }
 
         private void FillBox(List<string> list, ComboBox box)
@@ -190,6 +194,30 @@ namespace ShopManager
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void banButton_Click(object sender, EventArgs e)
+        {
+            string username = userBox.SelectedItem.ToString();
+
+            try
+            {
+                DatabaseManager db = new();
+                db.UserBan(username);
+
+                MessageBox.Show("Успешно");
+
+                userBox.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void exitSeans_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
