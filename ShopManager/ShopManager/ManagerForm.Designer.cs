@@ -45,7 +45,13 @@
             filterButton = new Button();
             sortButton = new Button();
             dbPanel = new Panel();
+            label4 = new Label();
             infoPanel = new Panel();
+            settingsPanel = new Panel();
+            hideSetPanel = new Label();
+            changeButtonEnd = new Button();
+            valueInput = new TextBox();
+            changeValueButton = new Button();
             valueLabel = new Label();
             label6 = new Label();
             colIndexLabel = new Label();
@@ -60,6 +66,7 @@
             panel1.SuspendLayout();
             dbPanel.SuspendLayout();
             infoPanel.SuspendLayout();
+            settingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dbTable).BeginInit();
             SuspendLayout();
             // 
@@ -272,10 +279,25 @@
             dbPanel.TabIndex = 14;
             dbPanel.Visible = false;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Cursor = Cursors.Hand;
+            label4.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label4.ForeColor = Color.FromArgb(192, 0, 0);
+            label4.Location = new Point(27, 234);
+            label4.Name = "label4";
+            label4.Size = new Size(63, 60);
+            label4.TabIndex = 23;
+            label4.Text = "↺";
+            // 
             // infoPanel
             // 
             infoPanel.Anchor = AnchorStyles.None;
             infoPanel.BackColor = Color.Teal;
+            infoPanel.Controls.Add(label4);
+            infoPanel.Controls.Add(settingsPanel);
+            infoPanel.Controls.Add(changeValueButton);
             infoPanel.Controls.Add(valueLabel);
             infoPanel.Controls.Add(label6);
             infoPanel.Controls.Add(colIndexLabel);
@@ -288,6 +310,72 @@
             infoPanel.Name = "infoPanel";
             infoPanel.Size = new Size(856, 350);
             infoPanel.TabIndex = 1;
+            // 
+            // settingsPanel
+            // 
+            settingsPanel.BackColor = Color.FromArgb(99, 164, 191);
+            settingsPanel.Controls.Add(hideSetPanel);
+            settingsPanel.Controls.Add(changeButtonEnd);
+            settingsPanel.Controls.Add(valueInput);
+            settingsPanel.Location = new Point(380, 24);
+            settingsPanel.Name = "settingsPanel";
+            settingsPanel.Size = new Size(425, 294);
+            settingsPanel.TabIndex = 21;
+            settingsPanel.Visible = false;
+            // 
+            // hideSetPanel
+            // 
+            hideSetPanel.AutoSize = true;
+            hideSetPanel.Cursor = Cursors.Hand;
+            hideSetPanel.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            hideSetPanel.ForeColor = Color.FromArgb(192, 0, 0);
+            hideSetPanel.Location = new Point(392, 4);
+            hideSetPanel.Name = "hideSetPanel";
+            hideSetPanel.Size = new Size(30, 31);
+            hideSetPanel.TabIndex = 22;
+            hideSetPanel.Text = "X";
+            hideSetPanel.Click += hideSetPanel_Click;
+            // 
+            // changeButtonEnd
+            // 
+            changeButtonEnd.BackColor = Color.FromArgb(26, 155, 131);
+            changeButtonEnd.Cursor = Cursors.Hand;
+            changeButtonEnd.FlatStyle = FlatStyle.Flat;
+            changeButtonEnd.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            changeButtonEnd.ForeColor = Color.White;
+            changeButtonEnd.Location = new Point(35, 84);
+            changeButtonEnd.Name = "changeButtonEnd";
+            changeButtonEnd.Size = new Size(133, 44);
+            changeButtonEnd.TabIndex = 21;
+            changeButtonEnd.Text = "Изменить";
+            changeButtonEnd.UseVisualStyleBackColor = false;
+            changeButtonEnd.Visible = false;
+            changeButtonEnd.Click += changeButtonEnd_Click;
+            // 
+            // valueInput
+            // 
+            valueInput.BorderStyle = BorderStyle.FixedSingle;
+            valueInput.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            valueInput.Location = new Point(35, 28);
+            valueInput.Name = "valueInput";
+            valueInput.Size = new Size(264, 38);
+            valueInput.TabIndex = 20;
+            valueInput.Visible = false;
+            // 
+            // changeValueButton
+            // 
+            changeValueButton.BackColor = Color.FromArgb(26, 155, 131);
+            changeValueButton.Cursor = Cursors.Hand;
+            changeValueButton.FlatStyle = FlatStyle.Flat;
+            changeValueButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            changeValueButton.ForeColor = Color.White;
+            changeValueButton.Location = new Point(27, 150);
+            changeValueButton.Name = "changeValueButton";
+            changeValueButton.Size = new Size(133, 81);
+            changeValueButton.TabIndex = 19;
+            changeValueButton.Text = "Изменить значение";
+            changeValueButton.UseVisualStyleBackColor = false;
+            changeValueButton.Click += changeValueButton_Click;
             // 
             // valueLabel
             // 
@@ -428,6 +516,8 @@
             dbPanel.ResumeLayout(false);
             infoPanel.ResumeLayout(false);
             infoPanel.PerformLayout();
+            settingsPanel.ResumeLayout(false);
+            settingsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dbTable).EndInit();
             ResumeLayout(false);
         }
@@ -459,5 +549,11 @@
         private Label label2;
         private Label label1;
         private DataGridView dbTable;
+        private Button changeValueButton;
+        private Panel settingsPanel;
+        private Button changeButtonEnd;
+        private TextBox valueInput;
+        private Label hideSetPanel;
+        private Label label4;
     }
 }

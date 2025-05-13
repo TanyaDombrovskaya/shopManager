@@ -15,6 +15,7 @@ namespace ShopManager
         private Point lastMousePosition;
         public List<Button> _buttonsMain = new List<Button>();
         public List<Button> _buttonsControl = new List<Button>();
+        private string _table;
         private int _rowIndex;
         private int _colIndex;
         private string _value;
@@ -124,70 +125,70 @@ namespace ShopManager
 
         private void detailsButtons_Click(object sender, EventArgs e)
         {
-            string table = "orderDetails";
+            _table = "orderDetails";
 
             DatabaseManager db = new();
-            db.LoadTable(dbTable, table);
+            db.LoadTable(dbTable, _table);
             dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
 
             dbPanel.Visible = true;
 
-            tableNameLabel.Text = table;
+            tableNameLabel.Text = _table;
 
             BaseValueSettings();
         }
 
         private void orderButton_Click(object sender, EventArgs e)
         {
-            string table = "orders";
+            _table = "orders";
 
             DatabaseManager db = new();
-            db.LoadTable(dbTable, table);
+            db.LoadTable(dbTable, _table);
             dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
 
             dbPanel.Visible = true;
 
-            tableNameLabel.Text = table;
+            tableNameLabel.Text = _table;
 
             BaseValueSettings();
         }
 
         private void categoriesButton_Click(object sender, EventArgs e)
         {
-            string table = "categories";
+            _table = "categories";
 
             DatabaseManager db = new();
-            db.LoadTable(dbTable, table);
+            db.LoadTable(dbTable, _table);
             dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
 
             dbPanel.Visible = true;
 
-            tableNameLabel.Text = table;
+            tableNameLabel.Text = _table;
 
             BaseValueSettings();
         }
 
         private void productsButton_Click(object sender, EventArgs e)
         {
-            string table = "products";
+            _table = "products";
 
             DatabaseManager db = new();
-            db.LoadTable(dbTable, table);
+            db.LoadTable(dbTable, _table);
             dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
 
             dbPanel.Visible = true;
 
-            tableNameLabel.Text = table;
+            tableNameLabel.Text = _table;
 
             BaseValueSettings();
         }
 
         private void usersButton_Click(object sender, EventArgs e)
         {
-            string table = "users";
+            _table = "users";
 
             DatabaseManager db = new();
-            db.LoadTable(dbTable, table);
+            db.LoadTable(dbTable, _table);
             dbTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(107, 61, 235);
             dbTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
@@ -196,7 +197,7 @@ namespace ShopManager
 
             dbPanel.Visible = true;
 
-            tableNameLabel.Text = table;
+            tableNameLabel.Text = _table;
 
             BaseValueSettings();
         }
@@ -221,6 +222,38 @@ namespace ShopManager
             colIndexLabel.Text = Convert.ToString(_colIndex);
             rowIndexLabel.Text = Convert.ToString(_rowIndex);
             valueLabel.Text = Convert.ToString(_value);
+        }
+
+        private void changeValueButton_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = true;
+            valueInput.Visible = true;
+            changeButtonEnd.Visible = true;
+
+            valueInput.Text = _value;
+        }
+
+        private void changeButtonEnd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DatabaseManager db = new();
+
+                string newValue = valueInput.Text;
+
+                db.ChangeValue(_table, _colIndex, _value, newValue);
+
+                MessageBox.Show("Успешно!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void hideSetPanel_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
         }
     }
 }
