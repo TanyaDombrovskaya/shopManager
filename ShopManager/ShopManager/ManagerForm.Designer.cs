@@ -42,12 +42,14 @@
             productsButton = new Button();
             panel1 = new Panel();
             zaprosButton = new Button();
-            filterButton = new Button();
-            sortButton = new Button();
+            deleteButton = new Button();
+            addButton = new Button();
             dbPanel = new Panel();
-            label4 = new Label();
             infoPanel = new Panel();
+            rebootTable = new Label();
             settingsPanel = new Panel();
+            delRowsButton = new Button();
+            rowsIdBox = new ComboBox();
             hideSetPanel = new Label();
             changeButtonEnd = new Button();
             valueInput = new TextBox();
@@ -215,8 +217,8 @@
             // 
             panel1.BackColor = Color.FromArgb(99, 164, 191);
             panel1.Controls.Add(zaprosButton);
-            panel1.Controls.Add(filterButton);
-            panel1.Controls.Add(sortButton);
+            panel1.Controls.Add(deleteButton);
+            panel1.Controls.Add(addButton);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(1057, 59);
             panel1.Name = "panel1";
@@ -238,35 +240,37 @@
             zaprosButton.Text = "Запрос";
             zaprosButton.UseVisualStyleBackColor = false;
             // 
-            // filterButton
+            // deleteButton
             // 
-            filterButton.BackColor = Color.FromArgb(26, 155, 131);
-            filterButton.Cursor = Cursors.Hand;
-            filterButton.Dock = DockStyle.Top;
-            filterButton.FlatStyle = FlatStyle.Flat;
-            filterButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            filterButton.ForeColor = Color.White;
-            filterButton.Location = new Point(0, 68);
-            filterButton.Name = "filterButton";
-            filterButton.Size = new Size(206, 68);
-            filterButton.TabIndex = 2;
-            filterButton.Text = "Фильрация";
-            filterButton.UseVisualStyleBackColor = false;
+            deleteButton.BackColor = Color.FromArgb(26, 155, 131);
+            deleteButton.Cursor = Cursors.Hand;
+            deleteButton.Dock = DockStyle.Top;
+            deleteButton.FlatStyle = FlatStyle.Flat;
+            deleteButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            deleteButton.ForeColor = Color.White;
+            deleteButton.Location = new Point(0, 68);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(206, 68);
+            deleteButton.TabIndex = 2;
+            deleteButton.Text = "Удалить";
+            deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.Click += deleteButton_Click;
             // 
-            // sortButton
+            // addButton
             // 
-            sortButton.BackColor = Color.FromArgb(26, 155, 131);
-            sortButton.Cursor = Cursors.Hand;
-            sortButton.Dock = DockStyle.Top;
-            sortButton.FlatStyle = FlatStyle.Flat;
-            sortButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            sortButton.ForeColor = Color.White;
-            sortButton.Location = new Point(0, 0);
-            sortButton.Name = "sortButton";
-            sortButton.Size = new Size(206, 68);
-            sortButton.TabIndex = 1;
-            sortButton.Text = "Сортировка";
-            sortButton.UseVisualStyleBackColor = false;
+            addButton.BackColor = Color.FromArgb(26, 155, 131);
+            addButton.Cursor = Cursors.Hand;
+            addButton.Dock = DockStyle.Top;
+            addButton.FlatStyle = FlatStyle.Flat;
+            addButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            addButton.ForeColor = Color.White;
+            addButton.Location = new Point(0, 0);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(206, 68);
+            addButton.TabIndex = 1;
+            addButton.Text = "Добавить";
+            addButton.UseVisualStyleBackColor = false;
+            addButton.Click += addButton_Click;
             // 
             // dbPanel
             // 
@@ -279,23 +283,11 @@
             dbPanel.TabIndex = 14;
             dbPanel.Visible = false;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Cursor = Cursors.Hand;
-            label4.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label4.ForeColor = Color.FromArgb(192, 0, 0);
-            label4.Location = new Point(27, 234);
-            label4.Name = "label4";
-            label4.Size = new Size(63, 60);
-            label4.TabIndex = 23;
-            label4.Text = "↺";
-            // 
             // infoPanel
             // 
             infoPanel.Anchor = AnchorStyles.None;
             infoPanel.BackColor = Color.Teal;
-            infoPanel.Controls.Add(label4);
+            infoPanel.Controls.Add(rebootTable);
             infoPanel.Controls.Add(settingsPanel);
             infoPanel.Controls.Add(changeValueButton);
             infoPanel.Controls.Add(valueLabel);
@@ -311,9 +303,24 @@
             infoPanel.Size = new Size(856, 350);
             infoPanel.TabIndex = 1;
             // 
+            // rebootTable
+            // 
+            rebootTable.AutoSize = true;
+            rebootTable.Cursor = Cursors.Hand;
+            rebootTable.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            rebootTable.ForeColor = Color.FromArgb(192, 0, 0);
+            rebootTable.Location = new Point(22, 271);
+            rebootTable.Name = "rebootTable";
+            rebootTable.Size = new Size(63, 60);
+            rebootTable.TabIndex = 23;
+            rebootTable.Text = "↺";
+            rebootTable.Click += rebootTable_Click;
+            // 
             // settingsPanel
             // 
             settingsPanel.BackColor = Color.FromArgb(99, 164, 191);
+            settingsPanel.Controls.Add(delRowsButton);
+            settingsPanel.Controls.Add(rowsIdBox);
             settingsPanel.Controls.Add(hideSetPanel);
             settingsPanel.Controls.Add(changeButtonEnd);
             settingsPanel.Controls.Add(valueInput);
@@ -322,6 +329,33 @@
             settingsPanel.Size = new Size(425, 294);
             settingsPanel.TabIndex = 21;
             settingsPanel.Visible = false;
+            // 
+            // delRowsButton
+            // 
+            delRowsButton.BackColor = Color.FromArgb(26, 155, 131);
+            delRowsButton.Cursor = Cursors.Hand;
+            delRowsButton.FlatStyle = FlatStyle.Flat;
+            delRowsButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            delRowsButton.ForeColor = Color.White;
+            delRowsButton.Location = new Point(35, 126);
+            delRowsButton.Name = "delRowsButton";
+            delRowsButton.Size = new Size(133, 44);
+            delRowsButton.TabIndex = 24;
+            delRowsButton.Text = "Удалить";
+            delRowsButton.UseVisualStyleBackColor = false;
+            delRowsButton.Visible = false;
+            delRowsButton.Click += delRowsButton_Click;
+            // 
+            // rowsIdBox
+            // 
+            rowsIdBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            rowsIdBox.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            rowsIdBox.FormattingEnabled = true;
+            rowsIdBox.Location = new Point(35, 48);
+            rowsIdBox.Name = "rowsIdBox";
+            rowsIdBox.Size = new Size(184, 36);
+            rowsIdBox.TabIndex = 23;
+            rowsIdBox.Visible = false;
             // 
             // hideSetPanel
             // 
@@ -534,9 +568,9 @@
         private Button categoriesButton;
         private Button productsButton;
         private Panel panel1;
-        private Button sortButton;
+        private Button addButton;
         private Button zaprosButton;
-        private Button filterButton;
+        private Button deleteButton;
         private Button exitButton;
         private Panel dbPanel;
         private Panel infoPanel;
@@ -554,6 +588,8 @@
         private Button changeButtonEnd;
         private TextBox valueInput;
         private Label hideSetPanel;
-        private Label label4;
+        private Label rebootTable;
+        private Button delRowsButton;
+        private ComboBox rowsIdBox;
     }
 }

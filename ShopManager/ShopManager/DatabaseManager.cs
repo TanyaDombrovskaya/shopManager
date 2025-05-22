@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace ShopManager
 {
@@ -10,6 +11,7 @@ namespace ShopManager
     {
         private readonly DBConnection _connectionDB;
         private readonly MySqlDataAdapter _adapter;
+        private List<string> _idName = new List<string> { "productID", "categoryID", "orderID", "orderDetailID" };
 
         public DatabaseManager()
         {
@@ -329,8 +331,7 @@ namespace ShopManager
                     if (IsPrimaryOrForeignKey(table, columnName, connection))
                         throw new InvalidOperationException($"Невозможно изменить значение столбца '{columnName}' так как он является первичным или внешним ключом");
 
-                    using (var command = new MySqlCommand(
-                        $"UPDATE `{table}` SET `{columnName}` = @nv WHERE `{columnName}` = @ov", connection))
+                    using (var command = new MySqlCommand($"UPDATE `{table}` SET `{columnName}` = @nv WHERE `{columnName}` = @ov", connection))
                     {
                         command.Parameters.Add("@nv", MySqlDbType.VarChar).Value = newValue;
                         command.Parameters.Add("@ov", MySqlDbType.VarChar).Value = oldValue;
@@ -344,6 +345,92 @@ namespace ShopManager
             {
                 LogError($"Ошибка при изменении значения в таблице {table}", ex);
                 throw;
+            }
+        }
+
+        ///
+        public bool AddLine(string tableName)
+        {
+            try
+            {
+                using (var connection = _connectionDB.GetConnection())
+                {
+                    string query = $"INSERT INTO `{tableName}` VALUES (NULL, NULL, ...);";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+                        return affectedRows > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError($"Ошибка при добавлении строки в таблицу {tableName}", ex);
+                return false;
+            }
+        }
+
+        public int GetRowsCount(string table)
+        {
+            try
+            {
+                using (var connection = _connectionDB.GetConnection())
+                {
+                    using (var command = new MySqlCommand($"SELECT COUNT(*) FROM {table}", connection))
+                    {
+                        connection.Open();
+
+                        int count = Convert.ToInt32(command.ExecuteScalar());
+                        return count;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError("Ошибка ", ex);
+                return 0;
+            }
+        }
+
+        public string GetIdName(string table)
+        {
+            switch (table.ToLower())
+            {
+                case "products":
+                    return _idName[0];
+                case "categories":
+                    return _idName[1];
+                case "orders":
+                    return _idName[2];
+                case "orderdetails":
+                    return _idName[3];
+                default:
+                    throw new ArgumentException($"Неизвестная таблица: {table}");
+            }
+        }
+
+        public void DeleteRow(string table, int rowId)
+        {
+            string idName = GetIdName(table);
+
+            try
+            {
+                using (var connection = _connectionDB.GetConnection())
+                {
+                    using (var command = new MySqlCommand($"DELETE FROM {table} WHERE {idName} = @id", connection))
+                    {
+                        command.Parameters.Add("@id", MySqlDbType.Int32).Value = rowId;
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError($"Ошибка при удалении строки из таблицы {table}", ex);
             }
         }
 

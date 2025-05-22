@@ -19,6 +19,7 @@ namespace ShopManager
         private int _rowIndex;
         private int _colIndex;
         private string _value;
+        private bool _flag = false;
 
         public ManagerForm()
         {
@@ -58,8 +59,8 @@ namespace ShopManager
             categoriesButton.FlatAppearance.BorderSize = 0;
             orderButton.FlatAppearance.BorderSize = 0;
             detailsButtons.FlatAppearance.BorderSize = 0;
-            sortButton.FlatAppearance.BorderSize = 0;
-            filterButton.FlatAppearance.BorderSize = 0;
+            addButton.FlatAppearance.BorderSize = 0;
+            deleteButton.FlatAppearance.BorderSize = 0;
             zaprosButton.FlatAppearance.BorderSize = 0;
             exitButton.FlatAppearance.BorderSize = 0;
         }
@@ -75,8 +76,8 @@ namespace ShopManager
 
         private void AddButtonsControl()
         {
-            _buttonsControl.Add(sortButton);
-            _buttonsControl.Add(filterButton);
+            _buttonsControl.Add(addButton);
+            _buttonsControl.Add(deleteButton);
             _buttonsControl.Add(zaprosButton);
         }
 
@@ -254,6 +255,79 @@ namespace ShopManager
         private void hideSetPanel_Click(object sender, EventArgs e)
         {
             settingsPanel.Visible = false;
+        }
+
+        private void rebootTable_Click(object sender, EventArgs e)
+        {
+            DatabaseManager db = new();
+
+            db.LoadTable(dbTable, _table);
+
+            _colIndex = 1;
+            _rowIndex = 1;
+            _value = Convert.ToString(dbTable.Rows[_rowIndex - 1].Cells[_colIndex - 1].Value);
+
+            colIndexLabel.Text = Convert.ToString(_colIndex);
+            rowIndexLabel.Text = Convert.ToString(_rowIndex);
+            valueLabel.Text = Convert.ToString(_value);
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Создаем экземпляр DatabaseHelper с вашей строкой подключения
+                DatabaseManager db = new();
+
+                // Вызываем метод для добавления пустой строки в указанную таблицу
+                db.InsertEmptyRow(_table);
+
+                // Вы можете добавить код для обновления интерфейса или уведомления пользователя
+                MessageBox.Show("Пустая строка успешно добавлена.");
+            }
+            catch (Exception ex)
+            {
+                // Обработка ошибок
+                MessageBox.Show($"Ошибка при добавлении строки: {ex.Message}");
+            }
+        }
+
+        public void FillBox(ComboBox box)
+        {
+            DatabaseManager db = new();
+            int count = db.GetRowsCount(_table);
+
+            box.Items.Clear();
+
+            for (int i = 1; i < count + 1; i++)
+            {
+                box.Items.Add(i);
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = true;
+            delRowsButton.Visible = true;
+            rowsIdBox.Visible = true;
+
+            FillBox(rowsIdBox);
+        }
+
+        private void delRowsButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DatabaseManager db = new();
+                int id = Convert.ToInt32(rowsIdBox.SelectedItem);
+                db.DeleteRow(_table, id);
+
+                MessageBox.Show("Успешно!");
+            }
+            catch (Exception ex)
+            { 
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

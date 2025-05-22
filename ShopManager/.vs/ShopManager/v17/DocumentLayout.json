@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\git\\c#\\shopManager\\ShopManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\managerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\managerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|c:\\git\\c#\\shopmanager\\shopmanager\\shopmanager\\managerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\managerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|C:\\git\\c#\\shopManager\\ShopManager\\shopmanager\\managerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4EB3D127-3467-462C-9E23-FC710481B691}|ShopManager\\ShopManager.csproj|solutionrelative:shopmanager\\managerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,42 +22,42 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ManagerForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\ManagerForm.cs",
               "RelativeDocumentMoniker": "ShopManager\\ManagerForm.cs",
               "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\ManagerForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "RelativeToolTip": "ShopManager\\ManagerForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T15:10:33.931Z",
+              "WhenOpened": "2025-05-14T11:05:36.373Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ManagerForm.cs",
               "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\ManagerForm.cs",
               "RelativeDocumentMoniker": "ShopManager\\ManagerForm.cs",
               "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\ManagerForm.cs",
               "RelativeToolTip": "ShopManager\\ManagerForm.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAQwPsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAoBAAAAAAAAAAAAwCABAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T07:43:41.878Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "DatabaseManager.cs",
               "DocumentMoniker": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\DatabaseManager.cs",
               "RelativeDocumentMoniker": "ShopManager\\DatabaseManager.cs",
               "ToolTip": "C:\\git\\c#\\shopManager\\ShopManager\\ShopManager\\DatabaseManager.cs",
               "RelativeToolTip": "ShopManager\\DatabaseManager.cs",
-              "ViewState": "AgIAAEsBAAAAAAAAAAAqwF0BAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAKUBAAAAAAAAAAAAAK0BAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T13:07:16.264Z",
               "EditorCaption": ""
