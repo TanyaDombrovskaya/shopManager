@@ -281,41 +281,64 @@ namespace ShopManager
             }
         }
 
-        public bool IsPrimaryOrForeignKey(string table, string columnName, MySqlConnection connection)
+        public bool IsPrimaryKey(string table, string columnName, MySqlConnection connection)
         {
             try
             {
-                string primaryKeyQuery = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE " +
-                                         "WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = @t AND COLUMN_NAME = @c AND CONSTRAINT_NAME = 'PRIMARY'";
+                string primaryKeyQuery = @"SELECT COUNT(*) 
+                                 FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+                                 WHERE TABLE_SCHEMA = DATABASE() 
+                                   AND TABLE_NAME = @tableName 
+                                   AND COLUMN_NAME = @columnName 
+                                   AND CONSTRAINT_NAME = 'PRIMARY'";
 
                 using (var command = new MySqlCommand(primaryKeyQuery, connection))
                 {
-                    command.Parameters.Add("@t", MySqlDbType.VarChar).Value = table;
-                    command.Parameters.Add("@c", MySqlDbType.VarChar).Value = columnName;
-
-                    if (Convert.ToInt32(command.ExecuteScalar()) > 0)
-                        return true;
-                }
-
-                string foreignKeyQuery = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE " +
-                                        "WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = @t AND COLUMN_NAME = @c AND CONSTRAINT_NAME != 'PRIMARY'";
-
-                using (var command = new MySqlCommand(foreignKeyQuery, connection))
-                {
-                    command.Parameters.Add("@t", MySqlDbType.VarChar).Value = table;
-                    command.Parameters.Add("@c", MySqlDbType.VarChar).Value = columnName;
+                    command.Parameters.Add("@tableName", MySqlDbType.VarChar).Value = table;
+                    command.Parameters.Add("@columnName", MySqlDbType.VarChar).Value = columnName;
 
                     return Convert.ToInt32(command.ExecuteScalar()) > 0;
                 }
             }
             catch (Exception ex)
             {
-                LogError($"Ошибка при проверке ключей для столбца {columnName} в таблице {table}", ex);
+                LogError($"Ошибка при проверке первичного ключа для столбца {columnName} в таблице {table}", ex);
                 throw;
             }
         }
 
-        public void ChangeValue(string table, int colIndex, string oldValue, string newValue)
+        public int GetIdByRowNumber(string table, int rowNumber, MySqlConnection connection)
+        {
+            try
+            {
+                string idColumnName = table.ToLower() switch
+                {
+                    "products" => "productID",
+                    "categories" => "categoryID",
+                    "orders" => "orderID",
+                    "orderdetails" => "orderDetailID",
+                    _ => throw new ArgumentException("Неизвестное имя таблицы")
+                };
+
+                string sql = $"SELECT {idColumnName} FROM {table} ORDER BY {idColumnName} LIMIT 1 OFFSET @rowOffset";
+
+                using (var command = new MySqlCommand(sql, connection))
+                {
+                    int offset = rowNumber - 1;
+                    command.Parameters.AddWithValue("@rowOffset", offset < 0 ? 0 : offset);
+
+                    var result = command.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError($"Ошибка при получении ID для строки {rowNumber} из таблицы {table}", ex);
+                return -1;
+            }
+        }
+
+        public void ChangeValue(string table, int rowIndex, int colIndex, object newValue)
         {
             try
             {
@@ -323,21 +346,42 @@ namespace ShopManager
                 {
                     connection.Open();
 
-                    string columnName = GetColumnNameFromId(table, colIndex, connection);
+                    int id = GetIdByRowNumber(table, rowIndex, connection);
+                    if (id == -1)
+                        throw new InvalidOperationException("Не удалось найти запись с указанным номером строки.");
 
+                    string columnName = GetColumnNameFromId(table, colIndex, connection);
                     if (string.IsNullOrEmpty(columnName))
                         throw new ArgumentException("Указанный столбец не найден");
 
-                    if (IsPrimaryOrForeignKey(table, columnName, connection))
-                        throw new InvalidOperationException($"Невозможно изменить значение столбца '{columnName}' так как он является первичным или внешним ключом");
-
-                    using (var command = new MySqlCommand($"UPDATE `{table}` SET `{columnName}` = @nv WHERE `{columnName}` = @ov", connection))
+                    if (table.Equals("orders", StringComparison.OrdinalIgnoreCase) &&
+                        columnName.Equals("orderDate", StringComparison.OrdinalIgnoreCase))
                     {
-                        command.Parameters.Add("@nv", MySqlDbType.VarChar).Value = newValue;
-                        command.Parameters.Add("@ov", MySqlDbType.VarChar).Value = oldValue;
+                        throw new InvalidOperationException("Невозможно изменить значение в столбце 'orderDate' таблицы 'orders'.");
+                    }
+
+                    if (IsPrimaryKey(table, columnName, connection))
+                    {
+                        throw new InvalidOperationException($"Невозможно изменить значение столбца '{columnName}' так как он является первичным или внешним ключом");
+                    }
+
+                    string primaryKey = table switch
+                    {
+                        "products" => "productID",
+                        "categories" => "categoryID",
+                        "orders" => "orderID",
+                        "orderdetails" => "orderDetailID",
+                        _ => throw new ArgumentException("Неизвестное имя таблицы")
+                    };
+
+
+                    using (var command = new MySqlCommand($"UPDATE `{table}` SET `{columnName}` = @nv WHERE `{primaryKey}` = @id", connection))
+                    {
+                        command.Parameters.Add("@nv", MySqlDbType.VarChar).Value = newValue.ToString();
+                        command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 
                         if (command.ExecuteNonQuery() == 0)
-                            throw new InvalidOperationException("Не удалось обновить значение. Возможно, старое значение не найдено.");
+                            throw new InvalidOperationException("Не удалось обновить значение. Возможно, указанный ID не найден.");
                     }
                 }
             }
@@ -345,30 +389,6 @@ namespace ShopManager
             {
                 LogError($"Ошибка при изменении значения в таблице {table}", ex);
                 throw;
-            }
-        }
-
-        ///
-        public bool AddLine(string tableName)
-        {
-            try
-            {
-                using (var connection = _connectionDB.GetConnection())
-                {
-                    string query = $"INSERT INTO `{tableName}` VALUES (NULL, NULL, ...);";
-
-                    using (var command = new MySqlCommand(query, connection))
-                    {
-                        connection.Open();
-                        int affectedRows = command.ExecuteNonQuery();
-                        return affectedRows > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LogError($"Ошибка при добавлении строки в таблицу {tableName}", ex);
-                return false;
             }
         }
 

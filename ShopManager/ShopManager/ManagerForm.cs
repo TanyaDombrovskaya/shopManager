@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlX.XDevAPI.Relational;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -126,7 +127,7 @@ namespace ShopManager
 
         private void detailsButtons_Click(object sender, EventArgs e)
         {
-            _table = "orderDetails";
+            _table = "orderdetails";
 
             DatabaseManager db = new();
             db.LoadTable(dbTable, _table);
@@ -237,18 +238,24 @@ namespace ShopManager
         private void changeButtonEnd_Click(object sender, EventArgs e)
         {
             try
-            {
+            { 
                 DatabaseManager db = new();
 
-                string newValue = valueInput.Text;
+                object newValue = valueInput.Text;
 
-                db.ChangeValue(_table, _colIndex, _value, newValue);
+                db.ChangeValue(_table, _rowIndex, _colIndex, newValue);
 
                 MessageBox.Show("Успешно!");
             }
+            catch (InvalidOperationException ex)
+            {
+                // Обработка исключения, если изменение значения невозможно
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                // Обработка других исключений
+                MessageBox.Show("Произошла ошибка: " + ex.Message);
             }
         }
 
@@ -274,22 +281,7 @@ namespace ShopManager
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Создаем экземпляр DatabaseHelper с вашей строкой подключения
-                DatabaseManager db = new();
-
-                // Вызываем метод для добавления пустой строки в указанную таблицу
-                db.InsertEmptyRow(_table);
-
-                // Вы можете добавить код для обновления интерфейса или уведомления пользователя
-                MessageBox.Show("Пустая строка успешно добавлена.");
-            }
-            catch (Exception ex)
-            {
-                // Обработка ошибок
-                MessageBox.Show($"Ошибка при добавлении строки: {ex.Message}");
-            }
+            ///
         }
 
         public void FillBox(ComboBox box)

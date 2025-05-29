@@ -5,7 +5,7 @@ namespace ShopManager
 {
     public class DBConnection
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;database=shop");
+        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;database=shop2");
 
         public void OpenConnection()
         {
