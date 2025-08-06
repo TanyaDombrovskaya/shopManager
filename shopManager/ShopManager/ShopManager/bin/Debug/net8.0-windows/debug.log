@@ -1,0 +1,3 @@
+BaseDirectory: C:\Users\user\Desktop\shopManager\ShopManager\ShopManager\bin\Debug\net8.0-windows\
+DB should be at: C:\Users\user\Desktop\shopManager\ShopManager\ShopManager\bin\Debug\net8.0-windows\ShopDatabase.sqlite
+DB exists: True
