@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ShopManager
-build_property.ProjectDir = C:\Users\user\Desktop\shopManager\ShopManager\ShopManager\
+build_property.ProjectDir = C:\git\shopManager\shopManager\ShopManager\ShopManager\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
