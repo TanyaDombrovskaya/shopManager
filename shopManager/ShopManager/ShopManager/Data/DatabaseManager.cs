@@ -122,7 +122,6 @@ namespace ShopManager.Data
                         command.ExecuteNonQuery();
                     }
 
-                    // Миграция: добавляем колонку Balance если её нет
                     try
                     {
                         string checkBalanceColumn = "PRAGMA table_info(users)";
